@@ -1,0 +1,26 @@
+org 1000h
+  cfin db "."
+  string db ?
+  fin db ?
+
+org 3000h
+leer_string:
+    mov ch,0
+    mov cl,cfin
+    mov bx,offset string
+ l_loop:
+    int 6
+    cmp [bx],cl
+    jz l_fin
+    inc bx
+    inc ch
+    jmp l_loop
+l_fin:ret
+
+org 2000h
+  call leer_string
+  mov al, ch
+  mov bx, offset string
+  int 7
+int 0
+end

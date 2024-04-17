@@ -1,0 +1,60 @@
+1. 
+a_ En la tecnica de correccion de debugging es necesario analizar los casos limites
+del problema:
+	Verdadero,  ya que se puede involucrar el diseño y aplicacion de pruebas 
+		adicionales para ubicar y conocer la naturaleza del error.
+
+b_  Un vector siempre se utiliza teniendo en cuenta la dimension logica:
+	Falso, dependiendo el programa que queramos realizar debemos tener en
+		cuenta si utilizar la dimL o solo la dimF.
+
+c_ Una funcion puede devolver un tipo de dato registro, real, booleano, integer,etc.
+	Verdadero: Ya que es un modulo que realiza una tarea especifica y que 
+		como resultado ella retorna un UNICO valor como respuesta.
+
+d_ Un programa que utiliza solo variables globales no requiere modularizacion:
+	Falso, el tipo de variables que tengamos no definen si el programa debe
+		ser modularizado o no, siempre es conveniente tener un programa
+		prolijo y estructurado.
+
+2.
+  1- Invalida, se deberia leer cada campo de registro individualmente.
+  2- Invalida, deberia ser new(cli) para crear un nodo, en este caso se quiere
+		crear un nodo de un registro y no se puede.
+  3- Invalida, nuevamente se deberia leer cada campo del registro individualmete.
+  4- Invalida, deberia ser Cli:=nil, ya que cli es la variable del nodo.
+  5- Invalida, para indicar nil a cli primero debe haber un New(cli)
+  6- Invalida, Como nunca hubo un new(cli) nunca podrias hacer un dispose
+		 de algo que no se creo
+  7- Valida, Accede al registro y nos permite cargarle la informacion.
+  8- Valida, Accede al registro e imprime el contenido aunque nunca se le cargo nada.
+
+3.
+  Los vectores son datos compuestos ordenados que permiten operar sobre cualquier
+	elemento. Donde todos los elementos son del mismo tipo, se puede ubicar 
+	los elementos indicando la posicion, la memoria ocupada es fija.
+  Para la operacion de busqueda necesitaremos un variable que le permita al user
+	describir que elemento busca o que posicion, luego de eso, en el primer
+	caso deberiamos recorrer el vector hasta encontrar el elemento buscado o
+	hasta que el vector llegue a su fin. Y en el segundo caso, si especifica
+	su posicion podria directamente saltar a la "casilla" del vector que desee
+
+4.
+	Memoria estatica:
+		v:  40b = 10b * ^alumno(4)= 40b
+		i:   4b
+	      sum:   4b
+	     nota:   4b
+	  ape_nom:  21b
+	----------------------
+		    73b TOTALES en la memoria estatira
+
+	Eficiencia:
+		???????
+
+5.
+	New(p) es el codigo que utilizamos para solicitar espacio en memoria
+		donde se almacenara la informacion.
+	p:=nil es para declarar un puntero nulo, este nos ayuda a indicar cual
+		es el final de la lista.
+	

@@ -1,0 +1,68 @@
+programa E3P1
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso ejecutarEsquina(ES cantP:numero; ES cantF:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantF:=cantF+1
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      cantP:=cantP+1
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    mientras(HayPapelEnLaBolsa)
+      depositarPapel     
+  fin
+  proceso hacerEscalon(ES largo:numero; ES cantP:numero; ES cantF:numero)
+  comenzar
+    repetir largo
+      ejecutarEsquina(cantP,cantF)
+      mover
+    derecha
+    repetir largo
+      ejecutarEsquina(cantP,cantF)  
+      mover
+    izquierda
+    largo:=largo+1  
+  fin
+  proceso Escalones(ES cantEsq:numero)
+  variables
+    largo:numero
+    cantP:numero
+    cantF:numero
+  comenzar
+    largo:=1
+    repetir 4
+      cantP:=0
+      cantF:=0
+      hacerEscalon(largo,cantP,cantF)
+      si(cantP-cantF=1)
+        cantEsq:=cantEsq+1
+      
+  fin        
+areas
+  Area: AreaC(1,1,50,50)
+robots
+  robot tipo1
+  variables
+    cantEsq:numero
+  comenzar
+    cantEsq:=0
+    Escalones(cantEsq)
+    Informar(cantEsq)
+  fin
+variables
+  r1,r2,r3:tipo1
+comenzar
+  AsignarArea(r1,Area)
+  AsignarArea(r2,Area)
+  AsignarArea(r3,Area)
+  Iniciar(r1,12,14)
+  Iniciar(r2,17,10)
+  Iniciar(r3,22,6)
+fin

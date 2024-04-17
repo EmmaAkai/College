@@ -1,0 +1,25 @@
+ORG 1000H
+	RES DB ?
+	CAD DB "abcd",00h
+
+ORG 3000H
+  LONGITUD:
+  PUSH BX ;push 1001h
+	MOV AL,0
+	L_LOOP:
+      MOV AH,[BX]
+      CMP AH,0
+      JZ L_FIN
+      INC AL
+      INC BX
+      JMP L_LOOP
+      L_FIN: POP BX
+  RET
+
+ORG 2000H
+  MOV BX, OFFSET CAD ;1001H
+  CALL LONGITUD
+  MOV RES,AL
+
+HLT
+END

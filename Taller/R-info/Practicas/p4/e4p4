@@ -1,0 +1,99 @@
+programa e4p4
+procesos
+  proceso EnviarTarea(ES T1:numero; ES T2:numero)
+  variables
+    pos:numero
+  comenzar
+    Random(T1,1,4)
+    EnviarMensaje(T1,r1)
+    si(T1<>4)
+      Random(pos,2,100)
+      EnviarMensaje(pos,r1)
+      Random(pos,2,100)
+      EnviarMensaje(pos,r1)
+    Random(T2,1,4)
+    EnviarMensaje(T2,r2)
+    si(T2<>4)
+      Random(pos,2,100)
+      EnviarMensaje(pos,r2)
+      Random(pos,2,100)
+      EnviarMensaje(pos,r2)
+  fin
+  proceso Tarea(E T1:numero; E T2:numero)
+  variables
+    ok:numero
+  comenzar
+    si(T1 <> 4)
+      RecibirMensaje(ok,*)
+    si(T2 <> 4)
+      RecibirMensaje(ok,*)
+  fin
+  proceso recogerFlores(E av:numero; E ca:numero)
+  comenzar
+    Pos(av,ca)
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso recogerPapeles(E av:numero; E ca:numero)
+  comenzar
+    Pos(av,ca)
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+  proceso vaciarBolsa(E av:numero; E ca:numero)
+  comenzar
+    Pos(av,ca)
+    mientras(HayPapelEnLaBolsa)
+      depositarPapel
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin    
+areas
+  AreaJ:AreaP(1,1,1,1)
+  Area1:AreaP(2,1,2,1)
+  Area2:AreaP(3,1,3,1)
+  AreaT:AreaPC(2,2,100,100) 
+robots
+  robot rJefe
+  variables
+    T1,T2:numero
+    Termino:numero
+  comenzar
+    repetir 10
+      EnviarTarea(T1,T2)
+      Esperar(T1,T2)
+  fin
+  robot Trabajador
+  variables
+    Tarea:numero
+    Av,Ca:numero
+    cant:numero
+  comenzar
+    cant:=0
+    RecibirMensaje(Tarea,Jefe)
+    mientras((Tarea<>4)&(cant<=10))
+      RecibirMensaje(Av,Jefe)
+      RecibirMensaje(Ca,Jefe)
+      si(Tarea=1)
+        recogerFlores(Av,Ca)
+      si(Tarea=2)
+        recogerPapeles(Av,Ca)
+      si(Tarea=3)
+        vaciarBolsa(Av,Ca)
+      EnviarMensaje(0,Jefe)
+      RecibirMensaje(Tarea,Jefe)
+      cant:=cant+1  
+  fin
+variables
+  Jefe: rJefe
+  r1,r2: Trabajador
+comenzar
+  AsignarArea(Jefe,AreaJ)
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,AreaT)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,AreaT)
+  Iniciar(Jefe,1,1)
+  Iniciar(r1,2,1)
+  Iniciar(r2,3,1)
+fin

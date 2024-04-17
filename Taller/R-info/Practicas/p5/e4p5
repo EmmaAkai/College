@@ -1,0 +1,103 @@
+programa e4p5
+procesos
+  proceso contarFlores(ES cant:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cant:=cant+1
+  fin
+  proceso depositar(E cant:numero)
+  comenzar
+    repetir cant
+      depositarFlor
+  fin
+areas
+  Area: AreaPC(40,40,60,60)
+  AreaF:AreaP(4,1,4,1)
+  Area1:AreaP(1,1,1,1)
+  Area2:AreaP(2,1,2,1)
+  Area3:AreaP(3,1,3,1)
+  AreaD:AreaC(10,10,10,10)
+robots
+  robot Fiscal
+  variables
+    ok:numero
+    cant:numero
+    r:numero
+    av,ca:numero
+  comenzar
+    cant:=0
+    repetir 8
+      Random(r,1,3)
+      Random(av,40,60)
+      Random(ca,40,60)
+      si(r=1)
+        EnviarMensaje(1,r1)
+        EnviarMensaje(av,r1)
+        EnviarMensaje(ca,r1)
+      sino
+        si(r=2)
+          EnviarMensaje(1,r2)
+          EnviarMensaje(av,r2)
+          EnviarMensaje(ca,r2)
+        sino
+          EnviarMensaje(1,r3)
+          EnviarMensaje(av,r3)
+          EnviarMensaje(ca,r3)
+    EnviarMensaje(0,r1)
+    EnviarMensaje(0,r2)
+    EnviarMensaje(0,r3)
+    RecibirMensaje(ok,*)
+    RecibirMensaje(ok,*)
+    RecibirMensaje(ok,*)
+    Pos(10,10)
+    contarFlores(cant)
+    Informar(cant)
+  fin
+  robot Florero
+  variables
+    ok:numero
+    av,ca:numero
+    antAv,antCa:numero
+    cant:numero
+  comenzar
+    antAv:=PosAv
+    antCa:=PosCa
+    cant:=0
+    RecibirMensaje(ok,rFiscal)
+    mientras(ok<>0)
+      RecibirMensaje(av,rFiscal)
+      RecibirMensaje(ca,rFiscal)
+      BloquearEsquina(av,ca)
+      Pos(av,ca)
+      contarFlores(cant)
+      Pos(antAv,antCa)
+      LiberarEsquina(av,ca)
+      RecibirMensaje(ok,rFiscal)
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    depositar(cant)
+    Pos(antAv,antCa)
+    LiberarEsquina(10,10)
+    EnviarMensaje(0,rFiscal)
+  fin  
+variables
+  rFiscal:Fiscal
+  r1,r2,r3:Florero
+comenzar
+  AsignarArea(rFiscal,AreaF)
+  AsignarArea(rFiscal,AreaD)
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,Area)
+  AsignarArea(r1,AreaD)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,Area)
+  AsignarArea(r2,AreaD)
+  AsignarArea(r3,Area3)
+  AsignarArea(r3,Area)
+  AsignarArea(r3,AreaD)
+  Iniciar(rFiscal,4,1)
+  Iniciar(r1,1,1)
+  Iniciar(r2,2,1)
+  Iniciar(r3,3,1)
+fin

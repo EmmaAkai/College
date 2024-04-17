@@ -1,0 +1,146 @@
+programa e2p3
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso tomarFlores(ES cant:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cant:=cant+1      
+  fin
+  proceso tomarPapeles(ES cant:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      cant:=cant+1
+  fin
+  proceso EnviarPrimero(E id:numero; ES cant:numero)
+  comenzar
+    repetir 2
+      mover
+    si(id=1)
+      derecha
+    sino
+      izquierda
+    BloquearEsquina(15,15)
+    repetir 2
+      mover
+    si(id=1)
+      tomarFlores(cant)
+    sino
+      tomarPapeles(cant)  
+    repetir 2
+      derecha
+    EnviarMensaje(id,jefe)  
+    mover    
+    LiberarEsquina(15,15)  
+  fin
+  proceso Escalon1(E id:numero; ES cant:numero)
+  variables
+    largo:numero
+  comenzar
+    largo:=5
+    repetir 3 
+      repetir largo
+        mover
+      si(id=1)
+        derecha
+        tomarFlores(cant)
+      sino
+        izquierda
+      repetir largo
+        mover
+        tomarPapeles(cant)
+      si(id=1)
+        izquierda
+      sino
+        derecha    
+      largo:=largo-1    
+  fin
+  proceso Escalon2(E id:numero; ES cant:numero)
+  variables
+    largo:numero
+  comenzar
+    si(id=1)
+      derecha
+    sino
+      izquierda
+    largo:=2
+    repetir 3
+      repetir largo
+        mover
+      si(id=1)
+        izquierda
+        tomarFlores(cant)
+      sino
+        derecha
+        tomarPapeles(cant)
+      repetir largo
+        mover
+      si(id=1)
+        derecha
+      sino
+        izquierda  
+      largo:=largo+1    
+  fin  
+areas
+  AreaJefe: AreaP(15,1,15,1)
+  AreaFlor: AreaP(1,1,14,31)
+  AreaPapel:AreaP(16,1,29,31)
+  Yuxtaposicion:AreaPC(15,15,15,15)
+robots
+  robot corredorF
+  variables
+    id:numero
+    cant:numero
+  comenzar
+    id:=1
+    cant:=0
+    Escalon1(id,cant)
+    EnviarPrimero(id,cant)
+    Escalon2(id,cant)
+    Informar(cant)
+    EnviarMensaje(0,jefe)
+  fin
+  robot corredorP
+  variables
+    id:numero
+    cant:numero
+  comenzar
+    id:=2
+    cant:=0
+    Escalon1(id,cant)
+    EnviarPrimero(id,cant)
+    Escalon2(id,cant)
+    Informar(cant)
+    EnviarMensaje(0,jefe)
+  fin  
+  robot robotJefe
+  variables
+    primero:numero
+    segundo:numero
+    termino:numero
+  comenzar
+    RecibirMensaje(primero,*)
+    RecibirMensaje(segundo,*)
+    RecibirMensaje(termino,*)
+    RecibirMensaje(termino,*)
+    Informar(primero)
+  fin  
+variables
+  cF:corredorF
+  cP:corredorP
+  jefe: robotJefe
+comenzar
+  AsignarArea(jefe,AreaJefe)
+  AsignarArea(cF,AreaFlor)
+  AsignarArea(cP,AreaPapel)
+  AsignarArea(cF,Yuxtaposicion)
+  AsignarArea(cP,Yuxtaposicion)
+  Iniciar(jefe,15,1)
+  Iniciar(cF,1,1)
+  Iniciar(cP,29,1)
+fin     

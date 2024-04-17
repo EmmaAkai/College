@@ -1,0 +1,93 @@
+programa e2p5
+procesos
+  proceso recogerFlores(ES cant:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cant:=cant+1
+  fin
+  proceso Depositar(E cant:numero)
+  variables
+    antAv,antCa:numero
+  comenzar
+    antAv:=PosAv
+    antCa:=PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    repetir cant
+      depositarFlor
+    Pos(antAv,antCa)
+    LiberarEsquina(50,50)
+  fin
+  proceso Enviar
+  comenzar
+    si(PosAv=1)
+      EnviarMensaje(0,r2)
+      EnviarMensaje(0,r3)
+    sino
+      si(PosAv=2)
+        EnviarMensaje(0,r1)
+        EnviarMensaje(0,r3)
+      sino
+        EnviarMensaje(0,r1)
+        EnviarMensaje(0,r2)
+  fin
+areas
+  AreaD: AreaC(50,50,50,50)
+  Area1: AreaP(1,1,1,100)
+  Area2: AreaP(2,1,2,100)
+  Area3: AreaP(3,1,3,100)
+  AreaF: AreaP(4,1,4,1)
+robots
+  robot Fiscal
+  variables
+    ok:numero
+    cant:numero
+  comenzar
+    cant:=0
+    RecibirMensaje(ok,*)
+    RecibirMensaje(ok,*)
+    RecibirMensaje(ok,*)
+    Pos(50,50)
+    recogerFlores(cant)
+    Informar(cant)
+  fin
+  robot Recolector
+  variables
+    cant:numero
+    ok:numero
+  comenzar
+    repetir 9
+      cant:=0
+      repetir 10
+        recogerFlores(cant)
+        mover
+      Depositar(cant)
+      Enviar  
+      RecibirMensaje(ok,*)
+      RecibirMensaje(ok,*)
+    repetir 9
+      recogerFlores(cant)
+      mover
+    Enviar
+    RecibirMensaje(ok,*)
+    RecibirMensaje(ok,*)
+    EnviarMensaje(0,rFiscal)  
+  fin
+variables
+  rFiscal:Fiscal
+  r1,r2,r3:Recolector
+comenzar
+  AsignarArea(rFiscal,AreaF)
+  AsignarArea(r1,Area1)
+  AsignarArea(r2,Area2)
+  AsignarArea(r3,Area3)
+  AsignarArea(rFiscal,AreaD)
+  AsignarArea(r1,AreaD)
+  AsignarArea(r2,AreaD)
+  AsignarArea(r3,AreaD)
+  Iniciar(rFiscal,4,1)
+  Iniciar(r1,1,1)
+  Iniciar(r2,2,1)
+  Iniciar(r3,3,1)
+fin

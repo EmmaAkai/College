@@ -1,0 +1,160 @@
+programa obradearte
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso juntarFlores
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso depositarFlores
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+  proceso Flor(E giro:numero)
+  variables
+    ca:numero
+  comenzar
+    ca:=PosCa
+    si(HayFlorEnLaEsquina)
+      juntarFlores
+      si(giro=1)
+        derecha
+        mover
+        depositarFlores
+        izquierda
+      si(giro=2)
+        izquierda
+        mover
+        depositarFlores
+        derecha
+      Pos(PosAv,ca)
+  fin
+  proceso calcularFlores(ES cantF:numero)
+  comenzar
+    BloquearEsquina(20,20)
+    Pos(20,20)
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantF:=cantF+1
+    Pos(20,18)
+    LiberarEsquina(20,20)
+  fin
+areas
+  AreaA:AreaPC(10,19,19,21)
+  AreaB:AreaPC(21,19,30,21)
+  Deposito:AreaPC(20,20,20,20)
+  Fiscalia:AreaP(20,18,20,18)
+robots
+  robot Juntador
+  variables
+    id:numero
+    giro:numero
+    listo:numero
+    av:numero
+  comenzar
+    RecibirMensaje(id,Fiscal)
+    RecibirMensaje(giro,Fiscal)
+    si(id=1)
+      derecha
+    si(id=2)
+      izquierda
+    repetir 9
+      av:=PosAv
+      mover
+      BloquearEsquina(av,20)
+      Flor(giro)
+      LiberarEsquina(av,20)
+    si(id=1)
+      EnviarMensaje(1,RAC)
+    si(id=2)
+      EnviarMensaje(1,RBC)
+  fin
+  robot jCentro
+  variables
+    id:numero
+    listo:numero
+    av:numero
+  comenzar
+    RecibirMensaje(id,Fiscal)
+    si(id=1)
+      derecha
+    si(id=2)
+      izquierda
+    RecibirMensaje(listo,*)
+    RecibirMensaje(listo,*)
+    repetir 9
+      juntarFlores
+      mover
+    BloquearEsquina(20,20)
+    av:=PosAv
+    mover
+    depositarFlores
+    Pos(av,PosCa)
+    LiberarEsquina(20,20)
+    EnviarMensaje(id,Fiscal)
+      
+  fin
+  robot Fiscalizador
+  variables
+    id1ro:numero
+    id2do:numero
+    F1:numero
+    F2:numero
+  comenzar
+    EnviarMensaje(1,RAup)
+    EnviarMensaje(1,RAup)
+    EnviarMensaje(1,RAC)
+    EnviarMensaje(1,RAdown)
+    EnviarMensaje(2,RAdown)
+    EnviarMensaje(2,RBup)
+    EnviarMensaje(2,RBup)
+    EnviarMensaje(2,RBC)
+    EnviarMensaje(2,RBdown)
+    EnviarMensaje(1,RBdown)
+    F1:=0
+    F2:=0
+    RecibirMensaje(id1ro,*)
+    Informar(id1ro)
+    calcularFlores(F1)
+    RecibirMensaje(id2do,*)
+    calcularFlores(F2)
+    si(F1>F2)
+      Informar(id1ro)
+    sino
+      si(F2<F1)
+        Informar(id2do)
+      sino
+        Informar(0)
+  fin
+variables
+  RAup:Juntador
+  RAC:jCentro
+  RAdown:Juntador
+  RBdown:Juntador
+  RBC:jCentro
+  RBup:Juntador
+  Fiscal:Fiscalizador
+comenzar
+  AsignarArea(Fiscal,Fiscalia)
+  AsignarArea(Fiscal,Deposito)
+  AsignarArea(RAC,AreaA)
+  AsignarArea(RAC,Deposito)
+  AsignarArea(RBC,AreaB)
+  AsignarArea(RBC,Deposito)
+  AsignarArea(RAup,AreaA)
+  AsignarArea(RAdown,AreaA)
+  AsignarArea(RBdown,AreaB)
+  AsignarArea(RBup,AreaB)
+  Iniciar(Fiscal,20,18)
+  Iniciar(RAC,10,20)
+  Iniciar(RBC,30,20)
+  Iniciar(RAdown,10,19)
+  Iniciar(RAup,10,21)
+  Iniciar(RBup,30,21)
+  Iniciar(RBdown,30,19)
+fin

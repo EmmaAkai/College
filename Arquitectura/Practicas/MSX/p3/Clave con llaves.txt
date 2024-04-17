@@ -1,0 +1,26 @@
+PA equ 30h
+CA equ 32h
+
+org 1000h
+clave db 6fh; 0110 1111
+msg db "Correcto"
+
+
+org 2000h
+;CA config
+mov al, 11111111B
+ out CA, al
+
+;Leer llaves
+ in al,PA
+ cmp clave,al
+ jnz fin
+ 
+;msj
+mov bx,offset msg
+mov al,8
+int 7 
+
+
+fin: hlt
+end

@@ -1,0 +1,74 @@
+1. 
+-Los vectores son datos compuestos ordenados que permiten operar sobre cualquier
+	elemento. Donde todos los elementos son del mismo tipo, se puede ubicar 
+	los elementos indicando la posicion(ya es que esta indexado), la memoria
+	ocupada es fija.
+-Las listas son un conjunto de elementos homogeneos no ordenados de forma secuencial
+	en la memoria, pueden poseer orden logico pero pueden aparecer dispersos en
+	la memoria. Son de tipo dinamica, osea que ocupa en memoria segun el 
+	programa lo necesite.
+
+2.
+  a_ Falso, la utilizacion de variables globales para la comunicacion entre modulos
+	es posible gracias a la implementacion de parametros.
+  b_ Falso, no siempre ya que hay que tener en cuenta si el vector esta cargado
+	con el dato a eliminar o no. O tambien si el vector no esta cargado con
+	ningun dato, no seria posible eliminar nada.
+  c_ Verdadero, que un programa este bien no depende de si esta modularizado o no,
+	que sea correcto o no, depende de si cumple con el proposito esperado.
+  d_ Falso, ya que una lista si o si hay que recorrerla para acceder al dato deseado,
+	en el caso de los vectores es suficiente con conocer la posicion donde este
+	ubicado el dato a acceder.
+
+3. 
+  1_ Invalido, ya que C es de tipo record por lo que se debe leer individualmente 
+	cada campo del registro.
+  2_ Invalido, ya que no se puede asignar una posicion de memoria dinamica a un record,
+	esta deberia ser de tipo puntero para que funcione.
+  3_ Invalido, ya que se le esta asignando nil, a un espacio de memoria aun no asignado,
+	faltaria un new(cli) antes.
+  4_ Valida, ya que se asigna un espacio de memoria dinamica a la variable del
+ 	puntero cli.
+  5_ Invalida, ya que nunca se realizo un new(cli_esp) para asignarle un espacio en
+	la memoria dinamica, por lo que no tiene lugar donde guardar los datos de cli
+  6_ Valido, ya que anteriormente se asigno un espacio en memoria para cli, y con
+	el dispose liberamos esa celda de memoria.
+  7_ Invalido, ya que se puede leer esa informacion pero al no haberle asignado un
+	espacio en memoria no tendria lugar en donde almacenarlo.
+  8_ Invalido, ya que esta tratando de imprimir un dato que no se almaceno en ningun
+	espacio de memoria.
+	
+
+4. 
+   La forma de comunicacion entre los modulos vistos en la cursada es a traves
+	de los parametros, estos son una serie de datos los de entrada; y los de entrada y salida.
+	los de entrada nos permiten utilizar una "copia" de la variable sin
+	modificar su contenido. Mientras que los de entrada y salida los utilizamos
+	para modificar el contenido de la variable.
+   Estos se declara en el encabezado del procedure, y a los ES con un var. para cada
+	parametro se debe especificar el tipo, los parametros actuales se declaran el
+	el lugar donde se llama el procedure, mientras que los parametros formales en
+	el encabezado.
+
+5. 
+  Memoria estatica:
+	p: 80b = 20b * 4b
+	i:  4b
+	c:  4b
+      ayn: 31b
+      ----------
+	  119b
+
+  Memoria dinamica:
+	???????
+
+  Eficiencia:
+	Talg= t1+t2
+	T1= (3*i + 2) + n*i
+	    (3*10+ 2) + 4*i
+	        32UT  + 40UT
+	T1= 72UT
+	T2= (3*i + 2) + n*i
+	       17ut   + 1*5
+	T2= 22UT
+	Talg= 94UT

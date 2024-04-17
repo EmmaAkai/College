@@ -1,0 +1,26 @@
+ORG 1000H
+  CAD DB "ABCD?09#"
+  RES DB ?
+
+ORG 3000H
+  CONTAR_MIN:
+    PUSH BX
+    MOV AL,0
+    L_LOOP: MOV AH,[BX]
+      CMP AH,0
+      JZ L_FIN
+      CMP AH,61H
+      JS L_OMITIR
+      INC AL
+      L_OMITIR: INC BX
+        JMP L_LOOP
+        L_FIN: POP BX
+  RET
+
+ORG 2000H
+  MOV BX, OFFSET CAD
+  CALL CONTAR_MIN
+  MOV RES,AL
+
+HLT
+END

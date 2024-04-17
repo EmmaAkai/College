@@ -1,0 +1,84 @@
+;UTILIZANDO PA DEL PIO, RECIBA UNA CADENA DE 5 CARACTERES DESDE UN DISPOSITIVO GENERICO. ESTE ENVIA LA CADENA
+; UN CARACTER A LA VEZ, CADA 10 SEGUNDOS. EL PROGRAMA FINALIZA CUANDO SE RECIBAN TODOS LOS CARACTERES
+; O CUANDO SE PRESIONE LA TECLA F10
+
+;etiquetas para el pio
+CONT EQU 10H
+COMP EQU 11H
+EOI EQU 20H
+IMR EQU 21H
+INT0 EQU 24H
+INT1 EQU 25H
+
+;etiquetas para el PIC
+PA EQU 30H
+CA EQU 32H
+
+N_F10 EQU 10
+N_TIMER EQU 11
+
+;decimos donde está la rutina encargada de la interrupción f10
+org 40
+dir_f10 dw rut_f10
+
+;decimos donde está la rutina encargada de la interrupcion del timer
+org 44
+dir_timer dw rut_timer
+
+;etiqueta cadena para guardar la cadena leida
+ORG 1000h
+cadena db ?
+
+ORG 3000h
+conf_pic: cli
+;configurar el pic
+MOV AL, 0FFh ; configurar PA para que sea todo entrada
+OUT CA, AL
+MOV AL, 11111100b ; habilitar las interrupciones timer y f10
+OUT IMR, AL
+MOV AL, N_F10
+OUT INT0, AL
+MOV AL, N_TIMER
+OUT INT1, AL
+;Configurar el timer
+MOV AL, 10
+OUT COMP, AL
+MOV AL, 0
+OUT CONT, AL
+STI ; volvemos a recibir interrupciones
+RET
+
+
+ORG 3500h
+;rutina encargada de la int del f10
+rut_f10: MOV CL, 0
+MOV AL, 0FFH
+OUT IMR, AL
+MOV AL, 20H
+OUT EOI, AL
+IRET
+
+ORG 3100h
+;rutina encargada del timer
+rut_timer: IN AL, PA ;lee pa
+MOV [BX], AL ; guarda en la direccion de bx lo que leyo del pa
+INC BX ;pasa a la siguiente direccion
+DEC CL ; bajo la cantidad restante
+JNZ vuelvo ; si quedan caracteres restantes, vuelvo al loop principal
+MOV AL, 0FFh
+OUT IMR, AL
+
+vuelvo: MOV AL, 0
+OUT CONT, AL ;reseteo el timer
+MOV AL, 20H
+OUT EOI, AL ; termino la interrupcion
+IRET
+
+ORG 2000h
+MOV BX, offset cadena ;guardo en bx la direccion donde voy a guardar la cadena
+MOV CL, 5 ;guardo en cl la cantidad de caracteres que voy a leer
+CALL conf_pic ;configuro el pic
+loop: cmp cl, 0
+JNZ loop
+INT 0
+end

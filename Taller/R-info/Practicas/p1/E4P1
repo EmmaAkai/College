@@ -1,0 +1,66 @@
+programa e4p1
+procesos
+  proceso tomarEsquina(E id:numero)
+  comenzar
+    si(id=1)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+    si(id=2)
+      mientras(HayPapelEnLaEsquina)
+        tomarPapel    
+  fin
+  proceso recorrer(E id:numero)
+  comenzar  
+    repetir 24
+      repetir 99
+        tomarEsquina(id)
+        mover
+      tomarEsquina(id)  
+      Pos((PosAv+1),1)
+    repetir 99
+      tomarEsquina(id)
+      mover
+    tomarEsquina(id)  
+  fin
+  proceso reposicionar(E id:numero)
+  comenzar
+    si(id=1)
+      Pos(51,1)
+    si(id=2)
+      Pos(76,1)  
+  fin        
+areas
+  Area1: AreaP(1,1,25,100)
+  Area2: AreaP(26,1,50,100)
+  Area3: AreaP(51,1,75,100)
+  Area4: AreaP(76,1,100,100)
+robots
+  robot tipo1
+  variables
+    id:numero
+  comenzar
+    id:=1
+    recorrer(id)
+    reposicionar(id)
+    recorrer(id)
+  fin
+  robot tipo2
+  variables
+    id:numero
+  comenzar
+    id:=2
+    recorrer(id)
+    reposicionar(id)
+    recorrer(id)
+  fin
+variables
+  r1:tipo1
+  r2:tipo1
+comenzar
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,Area3)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,Area4)
+  Iniciar(r1,1,1)
+  Iniciar(r2,26,1)
+fin

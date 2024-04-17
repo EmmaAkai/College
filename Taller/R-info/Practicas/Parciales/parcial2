@@ -1,0 +1,104 @@
+programa parcial2
+procesos
+  proceso EnviarMensajes
+  variables
+    cant:numero
+  comenzar
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)
+    EnviarMensaje(3,r3)
+    Random(cant,1,5)
+    EnviarMensaje(cant,r1)
+    Random(cant,1,10)
+    EnviarMensaje(cant,r1)
+    Random(cant,1,5)
+    EnviarMensaje(cant,r2)
+    Random(cant,1,10)
+    EnviarMensaje(cant,r2)
+    Random(cant,1,5)
+    EnviarMensaje(cant,r3)
+    Random(cant,1,10)
+    EnviarMensaje(cant,r3)
+  fin
+  proceso juntarFlores(ES cantF:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantF:=cantF+1
+  fin
+  proceso depositar
+  variables
+    avAnt,caAnt:numero
+  comenzar
+    avAnt:=PosAv
+    caAnt:=PosCa
+    BloquearEsquina(25,25)
+    Pos(25,25)
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(avAnt,caAnt)
+    LiberarEsquina(25,25)
+  fin
+areas
+  Areac:AreaP(24,24,24,24)
+  Area1:AreaP(1,1,6,11)
+  Area2:AreaP(7,1,12,11)
+  Area3:AreaP(13,1,18,11)
+  AreaD:AreaC(25,25,25,25)
+robots
+  robot Coordinador
+  variables
+    F1,F2,F3:numero
+  comenzar
+    EnviarMensajes
+    RecibirMensaje(F1,r1)
+    RecibirMensaje(F2,r2)
+    RecibirMensaje(F3,r3)
+    si((F1>F2)&(F1>F3))
+      Informar(1)
+    sino
+      si((F2>F1)&(F2>F3))
+        Informar(2)
+      sino
+        si((F3>F1)&(F3>F1))
+          Informar(3)
+        sino
+          Informar(0)
+  fin
+  robot Recolector
+  variables
+    ancho,largo:numero
+    cantF:numero
+  comenzar
+    cantF:=0
+    RecibirMensaje(ancho,rC)
+    RecibirMensaje(largo,rC)
+    repetir 2
+      repetir largo
+        juntarFlores(cantF)
+        mover
+      derecha
+      repetir ancho
+        juntarFlores(cantF)
+        mover
+      derecha
+    depositar
+    EnviarMensaje(cantF,  rC) 
+  fin  
+variables
+  rC:Coordinador
+  r1,r2,r3:Recolector
+comenzar
+  AsignarArea(rC,Areac)
+  AsignarArea(rC,AreaD)
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,AreaD)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,AreaD)
+  AsignarArea(r3,Area3)
+  AsignarArea(r3,AreaD)
+  Iniciar(rC,24,24)
+  Iniciar(r1,1,1)
+  Iniciar(r2,7,1)
+  Iniciar(r3,13,1)
+fin

@@ -1,0 +1,54 @@
+programa e2p1
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+  proceso Alinear
+  comenzar
+    si((PosAv=1)&(PosCa=20))
+      derecha
+    si((PosAv=20)&(PosCa=20))
+      derecha
+      derecha
+    si((PosAv=20)&(PosCa=1))
+      izquierda  
+  fin
+  proceso tomarPapeles(ES cantP:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      cantP:=cantP+1
+  fin
+  proceso recorrer(ES cantP:numero)
+  comenzar
+    tomarPapeles(cantP)
+    repetir 19
+      mover
+      tomarPapeles(cantP)
+  fin    
+areas
+  Area:AreaC(1,1,20,20)
+robots
+  robot tipo1
+  variables
+    cantP:numero
+  comenzar
+    cantP:=0
+    Alinear
+    recorrer(cantP)
+    Informar(cantP)
+  fin
+variables
+  r1,r2,r3,r4:tipo1
+comenzar
+  AsignarArea(r1,Area)
+  AsignarArea(r2,Area)
+  AsignarArea(r3,Area)
+  AsignarArea(r4,Area)
+  Iniciar(r1,1,1)
+  Iniciar(r2,1,20)
+  Iniciar(r3,20,20)
+  Iniciar(r4,20,1) 
+fin

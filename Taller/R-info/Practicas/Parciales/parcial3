@@ -1,0 +1,120 @@
+programa parcial3
+procesos
+  proceso EnviarMensajes
+  variables
+    cant:numero
+  comenzar
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)
+    EnviarMensaje(3,r3)
+    Random(cant,1,6)
+    EnviarMensaje(cant,r1)
+    Random(cant,1,6)
+    EnviarMensaje(cant,r2)
+    Random(cant,1,6)
+    EnviarMensaje(cant,r3)
+  fin
+  proceso juntarFlores
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+  proceso contarFlores(ES cant:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cant:=cant+1
+  fin
+  proceso depositar
+  variables
+    avAnt,caAnt:numero
+  comenzar
+    avAnt:=PosAv
+    caAnt:=PosCa
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+    Pos(avAnt,caAnt)
+    LiberarEsquina(50,50)
+  fin
+  proceso InformarFlores(E F1:numero; E F2:numero; E F3:numero)
+  comenzar
+    si((F1>F2)&(F1>F3))
+      Informar(1)
+    sino
+      si((F2>F1)&(F2>F3))
+        Informar(2)
+      sino
+        si((F3>F1)&(F3>F2))
+          Informar(3)
+        sino
+          Informar(0)
+  fin
+areas
+  Areac:AreaP(100,100,100,100)
+  Area1:AreaP(1,1,7,24)
+  Area2:AreaP(10,1,16,24)
+  Area3:AreaP(20,1,26,24)
+  AreaD:AreaC(50,50,50,50)
+robots
+  robot Coordinador
+  variables
+    id:numero
+    F1,F2,F3:numero
+    ok:numero
+  comenzar
+    F1:=0
+    F2:=0
+    F3:=0
+    EnviarMensajes
+    repetir 9
+      RecibirMensaje(id,*)
+      si(id=1)
+        contarFlores(F1)
+        EnviarMensaje(1,r1)
+      sino
+        si(id=2)
+          contarFlores(F2)
+          EnviarMensaje(1,r2)
+        sino
+          contarFlores(F3)
+          EnviarMensaje(1,r3)
+  fin
+  robot Recolector
+  variables
+    id:numero
+    largo:numero
+    adelantar:numero
+    ok:numero
+  comenzar
+    RecibirMensaje(id,rC)
+    RecibirMensaje(largo,rC)
+    adelantar:=largo+1
+    repetir 3
+      repetir 4
+        repetir largo
+          juntarFlores
+          mover
+        derecha
+      depositar
+      EnviarMensaje(id,rC)
+      Pos(PosAv,PosCa+adelantar)
+  fin
+variables
+  rC: Coordinador
+  r1,r2,r3: Recolector
+comenzar
+  AsignarArea(rC,Areac)
+  AsignarArea(rC,AreaD)
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,AreaD)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,AreaD)
+  AsignarArea(r3,Area3)
+  AsignarArea(r3,AreaD)
+  Iniciar(rC,100,100)
+  Iniciar(r1,1,1)
+  Iniciar(r2,10,1)
+  Iniciar(r3,20,1)
+fin

@@ -1,0 +1,90 @@
+programa e2p4
+procesos
+  proceso tomarPapeles
+  variables
+    cant:numero
+  comenzar
+    cant:=0
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      cant:=cant+1
+      depositarPapeles(cant)
+  fin
+  proceso depositarPapeles(ES cant:numero)
+  variables
+    posant:numero
+    antAv,antCa:numero
+  comenzar
+    antAv:=PosAv
+    antCa:=PosCa
+    si(cant=5)
+      BloquearEsquina(50,50)
+      Pos(50,50)
+      repetir 5
+        depositarPapel
+      Pos(antAv,antCa)
+      LiberarEsquina(50,50)
+      cant:=0  
+  fin
+  proceso recogerXpapeles(ES intentos:numero)
+  variables
+    cant:numero
+    agarrados:numero
+  comenzar
+    agarrados:=0
+    Random(cant,2,5)
+    repetir cant
+      si(HayPapelEnLaEsquina)
+        tomarPapel
+        agarrados:=agarrados+1
+    si(agarrados<>cant)
+      repetir agarrados
+        depositarPapel
+        intentos:=intentos+1
+    sino
+      intentos:=0
+  fin
+areas
+  Area0: AreaC(50,50,50,50)
+  AreaP1:AreaP(5,1,5,100)
+  AreaP2:AreaP(10,1,10,100)
+  AreaC1:AreaP(11,1,11,1)
+  AreaC2:AreaP(12,1,12,1)
+robots
+  robot productor
+  comenzar
+    repetir 99
+      tomarPapeles
+      mover
+  fin
+  robot consumidor
+  variables
+    intentos:numero
+    antAv:numero
+  comenzar
+    intentos:=0
+    antAv:=PosAv
+    mientras(intentos<8)
+      BloquearEsquina(50,50)
+      Pos(50,50)
+      recogerXpapeles(intentos)
+      Pos(antAv,1)
+      LiberarEsquina(50,50)
+  fin
+variables
+  p1,p2:productor
+  c1,c2:consumidor
+comenzar
+  AsignarArea(p1,AreaP1)
+  AsignarArea(p1,Area0)
+  AsignarArea(p2,AreaP2)
+  AsignarArea(p2,Area0)
+  AsignarArea(c1,AreaC1)
+  AsignarArea(c1,Area0)
+  AsignarArea(c2,AreaC2)
+  AsignarArea(c2,Area0)
+  Iniciar(p1,5,1)
+  Iniciar(p2,10,1)
+  Iniciar(c1,11,1)
+  Iniciar(c2,12,1)
+fin

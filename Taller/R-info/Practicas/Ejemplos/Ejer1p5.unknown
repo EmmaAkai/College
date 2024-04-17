@@ -1,0 +1,104 @@
+programa e1
+procesos
+  proceso juntarf(ES cant:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cant:=cant+1
+  fin
+  proceso recorrer(ES cant:numero)
+  comenzar
+    juntarf(cant)
+    repetir 96
+      mover
+      juntarf(cant)
+  fin
+areas
+  c1: AreaC(1,1,100,100)
+robots
+  robot fiscal
+  variables
+    id,cant,total1,total2:numero
+  comenzar
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)
+    EnviarMensaje(3,r3)
+    EnviarMensaje(4,r4)
+    repetir 4
+      RecibirMensaje(id,*)
+      si (id=1)
+        RecibirMensaje(cant,r1)
+        total1:=total1+cant
+      sino
+        si (id=2)
+          RecibirMensaje(cant,r2)
+          total1:=total1+cant
+        sino
+          si id=3
+            RecibirMensaje(cant,r3)
+            total2:=cant+total2
+          sino
+            RecibirMensaje(cant,r4)
+            total2:=total2+cant        
+    si total1>total2
+      Informar(1)
+    sino
+      Informar(2)  
+  fin
+  robot t1
+  variables
+    cant,id:numero
+  comenzar
+    RecibirMensaje(id,fis)
+    recorrer(cant)
+    BloquearEsquina(PosAv,PosCa+1)
+    mover
+    juntarf(cant)
+    Pos(PosAv,PosCa-1)
+    LiberarEsquina(PosAv,PosCa+1)
+    BloquearEsquina(PosAv,PosCa+2)
+    Pos(PosAv,PosCa+2)
+    juntarf(cant)
+    mover
+    LiberarEsquina(PosAv,PosCa-1) 
+    juntarf(cant) 
+    EnviarMensaje(id,fis)
+    EnviarMensaje(cant,fis)
+  fin      
+  robot t2
+  variables
+    cant,id:numero
+  comenzar
+    RecibirMensaje(id,fis)
+    derecha
+    juntarf(cant)
+    BloquearEsquina(PosAv+1,PosCa)
+    mover
+    juntarf(cant)
+    Pos(PosAv-1,PosCa)
+    LiberarEsquina(PosAv+1,PosCa)
+    BloquearEsquina(PosAv+2,PosCa)
+    Pos(PosAv+2,PosCa)
+    juntarf(cant)
+    mover
+    LiberarEsquina(PosAv-1,PosCa)
+    recorrer(cant)
+    EnviarMensaje(id,fis)
+    EnviarMensaje(cant,fis)
+  fin
+variables
+  r1,r2:t1
+  r3,r4:t2
+  fis:fiscal
+comenzar
+  AsignarArea(fis,c1)
+  AsignarArea(r1,c1)
+  AsignarArea(r2,c1)
+  AsignarArea(r3,c1)
+  AsignarArea(r4,c1)
+  Iniciar(fis,1,1)
+  Iniciar(r1,2,1)
+  Iniciar(r2,3,1)
+  Iniciar(r3,1,98)
+  Iniciar(r4,1,99)
+fin    

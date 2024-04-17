@@ -1,0 +1,23 @@
+i: iteraciones
+n: contenido
+
+
+
+repeat until:
+	(i+1) + n + n*i
+
+while:
+	(i+1) + n*i
+
+for:
+	(3*i + 2) + n*i
+
+if: 
+	Peor de los casos
+
+record:
+	La suma de sus campos
+
+puntero:
+	4 en la ESTATICA
+	lo que contiene en la DINAMICA

@@ -1,0 +1,55 @@
+ALOCACIÓN ESTÁTICA: en este caso las variables reservan memoria estática en su declaración.
+ No es posible modificar las estructuras ya declaradas durante la ejecución del programa,
+ lo que puede traer cierta rigidez a la hora de resolver los problemas.
+ 
+ALOCACIÓN DINÁMICA: permite declarar variables dinámicas o referenciadas, 
+ como los punteros, que son justamente un tipo de variable usada para almacenar
+ la dirección de memoria de otra variable en lugar de un valor convencional.
+ Es un tipo de dato simple que sólo puede contener la dirección de memoria de otro dato,
+ denominado variable referenciada, que está almacenado en memoria dinámica (heap).
+ Cada variable de tipo puntero puede apuntar a un único tipo de dato y ocupan 4 bytes de memoria stack,
+ sin importar a qué está apuntando. Por definición, las variables referenciadas son estructuras
+ dinámicas que crecen o decrecen durante la ejecución del programa y que tienen un tiempo de vida finito
+ dado que se crean cuando se necesitan y se destruyen cuando ya han cumplido con su cometido (esto es, permite
+ reservar y liberar memoria en tiempo de ejecución). De esto último podemos deducir que un dato referenciado no tiene,
+ en un principio, memoria asignada. Asimismo, los punteros permiten crear estructuras de datos dinámicas
+ cuya cantidad de elementos varía durante la ejecución.
+
+  TIPO            CANTIDAD DE BYTES (*)
+   Boolean           1 byte
+   Entero            4 bytes
+   Real              8 bytes
+   Char              1 byte
+   String            longitud del String + 1
+   Record            La suma de lo que ocupa cada campo que lo compone
+   Vector            Dimensión física * tipo de dato
+   Puntero           4 bytes
+
+
+
+EFICIENCIA:
+	Asignacion= 1UT
+	Operaciones= 1UT
+	Evaluar condicion= 1UT
+	if/else = se toma el peor de los casos
+	for = (3. i + 2) + n(contenido)*i
+
+	  3(i) + 2 = 32 UT​
+		N(cuerpo) =​
+
+	       10 (suma + asignación = 2UT) + ​(multip + asignación = 2UT)​ =
+	
+	       10 (4) 40 UT​
+	
+	       32 + 40 = 72 UT​
+
+	while= i + 1(evaluar cond) + i*N(cuerpo)
+		i= 5​
+	       		6 (cond 1 UT) = 6 UT​
+
+		N= 20      ​
+
+		       	5 ((suma + asignación = 2UT) + ​(suma + asignación = 2UT))​=
+	
+		       		5*(4)= 20UT
+

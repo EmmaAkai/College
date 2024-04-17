@@ -1,0 +1,53 @@
+programa EJ1P1
+procesos
+  proceso TomarFlores(ES cantFlor:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantFlor:=cantFlor+1
+  fin
+  
+  proceso esquinaVacia(ES cantEsquina:numero)
+  comenzar
+    si(~HayFlorEnLaEsquina)
+      cantEsquina:=cantEsquina+1
+  fin
+  
+  proceso DejarFlores
+  comenzar
+    mientras(HayFlorEnLaBolsa)
+      depositarFlor
+  fin
+  
+  proceso Izquierda
+  comenzar
+    repetir 3
+      derecha
+  fin
+areas
+  ciudad:AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    papeles: numero
+    flores: numero
+    cantFlor: numero
+    cantEsquina: numero
+  comenzar
+    cantFlor:=0
+    cantEsquina:=0
+    repetir 99
+      TomarFlores(cantFlor)
+      esquinaVacia(cantEsquina)
+      mover
+    DejarFlores
+    Informar(cantFlor)
+    Informar(cantEsquina)
+  fin
+variables
+  R-info: robot1
+comenzar
+  AsignarArea(R-info,ciudad)
+  Iniciar(R-info,1,1)
+fin
+

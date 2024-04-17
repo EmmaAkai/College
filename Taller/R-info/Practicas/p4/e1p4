@@ -1,0 +1,110 @@
+programa e1p4
+procesos
+  proceso rec
+  comenzar 
+    repetir 100
+      tomarFlor
+  fin
+  proceso depositar(E cantF:numero)
+  comenzar
+    repetir cantF
+      depositarFlor
+  fin
+  proceso contarFlores(ES cantF:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      cantF:=cantF+1
+  fin
+areas
+  AreaR1: AreaPC(1,1,1,100)
+  AreaR2: AreaPC(2,1,2,100)
+  AreaR3: AreaPC(3,1,3,100)
+  AreaS: AreaP(100,100,100,100)
+robots
+  robot servidor
+  variables
+    id,cantF:numero
+    caSig:numero
+    termino:numero
+    ok1,ok2,ok3:numero
+  comenzar
+    termino:=1
+    rec
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)  
+    EnviarMensaje(3,r3)
+    mientras(termino<>0)
+      RecibirMensaje(id,*)
+      si(id=1)
+        RecibirMensaje(cantF,r1)
+        RecibirMensaje(caSig,r1)
+      sino
+        si(id=2)
+          RecibirMensaje(cantF,r2)
+          RecibirMensaje(caSig,r2)
+        sino
+          RecibirMensaje(cantF,r3)
+          RecibirMensaje(caSig,r3)
+      Pos(id,caSig)
+      depositar(cantF)
+      Pos(100,100)
+      si(id=1)
+        EnviarMensaje(1,r1)
+      sino
+        si(id=2)
+          EnviarMensaje(1,r2)
+        sino
+          EnviarMensaje(1,r3)
+      si(ok1=1)
+        RecibirMensaje(ok1,r1)
+      si(ok2=1)
+        RecibirMensaje(ok2,r2)
+      si(ok3=1)
+        RecibirMensaje(ok3,r3)
+      si((ok1=0)&(ok2=0)&(ok3=0))
+        termino:=0
+  fin
+  robot cliente
+  variables
+    id:numero
+    caSig:numero
+    cantF:numero
+    pasos:numero
+    ACK:numero
+  comenzar
+    RecibirMensaje(id,server)
+    mientras(PosCa<100)
+      Random(cantF,1,4)
+      EnviarMensaje(id,server)
+      EnviarMensaje(cantF,server)
+      caSig:=PosCa+1
+      EnviarMensaje(caSig,server)
+      RecibirMensaje(ACK,server)
+      mover
+      contarFlores(pasos)
+      Pos(id,PosCa-1)
+      repetir (pasos-1)
+        si(PosCa<100)
+          depositarFlor
+          mover
+      depositarFlor
+      EnviarMensaje(1,server)
+    EnviarMensaje(0,server)
+  fin
+variables
+  r1,r2,r3:cliente
+  server:servidor
+comenzar
+  AsignarArea(r1,AreaR1)
+  AsignarArea(r2,AreaR2)
+  AsignarArea(r3,AreaR3)
+  AsignarArea(server,AreaR1)
+  AsignarArea(server,AreaR2)
+  AsignarArea(server,AreaR3)
+  AsignarArea(server,AreaS)
+  Iniciar(server, 100, 100)
+  Iniciar(r1, 1, 1)
+  Iniciar(r2, 2, 1)
+  Iniciar(r3, 3, 1)
+fin

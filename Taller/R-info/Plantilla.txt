@@ -1,0 +1,28 @@
+programa Plantilla
+procesos
+
+areas
+ ciudad:AreaC(1,1,100,100)
+
+robots
+  robot tipo1
+  variables
+  comenzar
+  fin
+
+  robot tipo2
+  variables
+  comenzar
+  fin
+
+variables
+  r1: tipo1
+  r2: tipo2
+
+comenzar
+  AsignarArea(r1,ciudad)
+  AsignarArea(r2,ciudad)
+  Iniciar(r1,1,1)
+  Iniciar(r2,2,1)
+fin
+

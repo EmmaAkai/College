@@ -1,0 +1,26 @@
+org 1000h
+  car db "x"
+  cfin db "."
+  cant db 0
+  string db ?
+
+org 3000h
+leer_cantx:
+    mov bx,offset string
+ l_loop: int 6
+    mov al,[bx]
+    cmp al,cfin
+    jz l_fin
+    cmp al,car
+    jnz l_loop
+    inc cant
+    jmp l_loop
+l_fin:ret
+
+org 2000h
+  call leer_cantx
+  mov al, 1
+  mov bx, offset cant
+  int 7
+int 0
+end

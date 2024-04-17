@@ -1,0 +1,72 @@
+programa e5p5
+areas
+  AreaD:AreaC(100,1,100,1)
+  AreaS:AreaP(13,1,13,1)
+  Area1:AreaP(10,1,10,1)
+  Area2:AreaP(11,1,11,1)
+  Area3:AreaP(12,1,12,1)
+robots
+  robot Servidor
+  variables
+    id,cantP:numero
+  comenzar
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)
+    EnviarMensaje(3,r3)
+    repetir 12
+      RecibirMensaje(id,*)
+      Random(cantP,1,5)
+      BloquearEsquina(100,1)
+      Pos(100,1)
+      repetir cantP
+        depositarPapel
+      si(id=1)
+        EnviarMensaje(cantP,r1)
+      sino
+        si(id=2)
+          EnviarMensaje(cantP,r2)
+        sino
+          EnviarMensaje(cantP,r3)
+      Pos(13,1)
+      LiberarEsquina(100,1)
+  fin
+  robot Cliente
+  variables
+    id:numero
+    cantP:numero
+    cantPtot:numero
+    antAv,antCa:numero
+  comenzar
+    antAv:=PosAv
+    antCa:=PosCa
+    cantPtot:=0
+    RecibirMensaje(id,rS)
+    repetir 4
+      EnviarMensaje(id,rS)
+      RecibirMensaje(cantP,rS)
+      cantPtot:=cantPtot+cantP
+      repetir cantPtot
+        BloquearEsquina(100,1)
+        Pos(100,1)
+        si(HayPapelEnLaEsquina)
+          tomarPapel
+        Pos(antAv,antCa)
+        LiberarEsquina(100,1)
+  fin
+variables
+  rS:Servidor
+  r1,r2,r3:Cliente
+comenzar
+  AsignarArea(rS,AreaS)
+  AsignarArea(rS,AreaD)
+  AsignarArea(r1,Area1)
+  AsignarArea(r1,AreaD)
+  AsignarArea(r2,Area2)
+  AsignarArea(r2,AreaD)
+  AsignarArea(r3,Area3)
+  AsignarArea(r3,AreaD)
+  Iniciar(rS,13,1)
+  Iniciar(r1,10,1)
+  Iniciar(r2,11,1)
+  Iniciar(r3,12,1)
+fin

@@ -1,0 +1,241 @@
+{
+4. Una oficina requiere el procesamiento de los reclamos de las personas. De cada reclamo
+se lee código, DNI de la persona, año y tipo de reclamo. La lectura finaliza con el código de
+igual a -1. Se pide:
+
+a) Un módulo que retorne estructura adecuada para la búsqueda por DNI. Para cada DNI
+se deben tener almacenados cada reclamo y la cantidad total de reclamos que realizó.
+b) Un módulo que reciba la estructura generada en a) y un DNI y retorne la cantidad de
+reclamos efectuados por ese DNI.
+c) Un módulo que reciba la estructura generada en a) y dos DNI y retorne la cantidad de
+reclamos efectuados por todos los DNI comprendidos entre los dos DNI recibidos.
+d) Un módulo que reciba la estructura generada en a) y un año y retorne los códigos de
+los reclamos realizados en el año recibido.
+}
+
+program eje04;
+uses
+  sysutils;
+
+type
+  REG_listaRec = record
+    cod,anio: integer;
+    tipo: string;
+  end;
+
+  Lista = ^Nodo;
+  Nodo = record
+    dato: REG_listaRec;
+    sig: Lista;
+  end;
+
+  REG_reclamos = record
+    dni: longint;
+    cant: integer;
+    reclamos: Lista;
+  end;
+
+  Arbol = ^NodoA;
+  NodoA = record
+    dato: REG_reclamos;
+    HI, HD: Arbol;
+  end;
+
+  Lista2 = ^Nodo2;
+  Nodo2 = record
+    dato: integer;
+    sig: Lista2;
+  end;
+
+// ============== INCISO A
+procedure incisoA (var a: Arbol);
+
+  procedure cargarLista (var L: Lista; r: REG_listaRec);
+    var
+      nue: Lista;
+    begin
+      new(nue);
+      nue^.dato:= r;
+      nue^.sig:= L;
+      L:= nue;
+    end;
+
+  procedure cargarA (var a: Arbol; r: REG_listaRec; dni: longint);
+    begin
+      if (a = nil) then
+        begin
+          new(a);
+          a^.dato.dni:= dni;
+          a^.dato.cant:= 1;
+          a^.dato.reclamos:= nil;
+          cargarLista(a^.dato.reclamos,r);
+          a^.HI:= nil;
+          a^.HD:= nil;
+        end
+      else
+        if (a^.dato.dni > dni) then
+          cargarA(a^.HI,r,dni)
+        else
+          if (a^.dato.dni < dni) then
+            cargarA(a^.HD,r,dni)
+          else
+            begin
+              a^.dato.cant:= a^.dato.cant + 1;
+              cargarLista(a^.dato.reclamos,r);
+            end;
+    end;
+
+  procedure leer (var r: REG_listaRec; var dni: longint);
+    begin
+      r.cod:= random(100) - 1;
+      if (r.cod <> -1) then
+        begin
+          r.anio:= random(24) + 2000;
+          r.tipo:= Concat('Tipo-',IntToStr(random(1000)));
+          dni:= random(20000000) + 20000000;
+        end;
+    end;
+
+  var
+    r: REG_listaRec;
+    dni: longint;
+  begin
+    leer(r,dni);
+    while (r.cod <> -1) do
+      begin
+        cargarA(a,r,dni);
+        leer(r,dni);
+      end;
+  end;
+// ============== INCISO A
+
+// ============== INCISO B
+procedure incisoB (a: Arbol);
+
+  function buscar (a: Arbol; dni: longint): integer;
+    begin
+      if (a <> nil) then
+        begin
+          if (a^.dato.dni > dni) then
+            buscar:= buscar(a^.HI,dni)
+          else
+            if (a^.dato.dni < dni) then
+              buscar:= buscar(a^.HD,dni)
+            else
+              if (a^.dato.dni = dni) then
+                begin
+                  buscar:= 0;
+                  while (a^.dato.reclamos <> nil) do
+                    begin
+                      buscar:= buscar + 1;
+                      a^.dato.reclamos:= a^.dato.reclamos^.sig;
+                    end;
+                end;
+        end
+      else
+        buscar:= 0;
+    end;
+
+  var
+    dni: longint;
+  begin
+    write('D.N.I: '); readln(dni);
+    writeln('El D.N.I ',dni,' tiene ',buscar(a,dni),' reclamos');
+  end;
+// ============== INCISO B
+
+// ============== INCISO C
+procedure incisoC (a: Arbol);
+
+  procedure buscar (a: Arbol; inf,sup: longint; var cant: integer);
+    begin
+      if (a <> nil) then
+        if (a^.dato.dni > inf) then
+          if (a^.dato.dni < sup) then
+            begin
+              while (a^.dato.reclamos <> nil) do
+                begin
+                  cant:= cant + 1;
+                  a^.dato.reclamos:= a^.dato.reclamos^.sig;
+                end;
+              buscar(a^.HI,inf,sup,cant);
+              buscar(a^.HD,inf,sup,cant);
+            end
+          else
+            buscar(a^.HI,inf,sup,cant)
+        else
+          buscar(a^.HD,inf,sup,cant);
+    end;
+
+  var
+    inf,sup: longint;
+    cant: integer;
+  begin
+    cant:= 0;
+    writeln('D.N.I inf: '); readln(inf);
+    writeln('D.N.I sup: '); readln(sup);
+    buscar(a,inf,sup,cant);
+    writeln('La cantidad de reclamos es: ',cant);
+  end;
+// ============== INCISO C
+
+// ============== INCISO D
+procedure  cargarLista2 (var L2: Lista2; cod: integer);
+  var
+    nue: Lista2;
+  begin
+    new(nue);
+    nue^.dato:= cod;
+    nue^.sig:= L2;
+    L2:= nue;
+  end;
+
+procedure buscar (a: Arbol; anio: integer; var L2: Lista2);
+  begin
+    if (a <> nil) then
+      begin
+        while (a^.dato.reclamos <> nil) do
+          begin
+            if (a^.dato.reclamos^.dato.anio = anio) then
+              cargarLista2(L2,a^.dato.reclamos^.dato.cod);
+            a^.dato.reclamos:= a^.dato.reclamos^.sig;
+          end;
+        buscar(a^.HI,anio,L2);
+        buscar(a^.HD,anio,L2);
+      end;
+  end;
+
+procedure incisoD (a: Arbol; var l2: Lista2);
+  var
+    anio: integer;
+  begin
+    write('Anio: '); readln(anio);
+    buscar(a,anio,l2);
+  end;
+// ============== INCISO D
+
+
+//Programa principal
+var
+  a: Arbol;
+  l2: Lista2;
+begin
+  Randomize;
+
+  //Inciso A
+  a:= nil;
+  incisoA(a);
+
+  //Inciso B
+  incisoB(a);
+  writeln();
+
+  //Inciso C
+  incisoC(a);
+  writeln();
+
+  //Inciso D
+  l2:= nil;
+  incisoD(a,l2);
+  writeln();
+end.
