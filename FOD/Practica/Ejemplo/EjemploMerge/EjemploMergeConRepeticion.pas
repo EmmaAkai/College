@@ -29,7 +29,7 @@ type
 
 
 
-procedure leer(var archivo:detalle; var dato:alumno);
+procedure leer(var archivo:detalle; var dato:vendedor);
     begin
         if(not eof(archivo)) then
             read(archivo, dato);
