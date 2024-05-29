@@ -100,6 +100,7 @@ procedure PasarAaTxt(var mae:maestro; var lis:text);
                 writeln(lis, a.cod, ': ', a.apellido, ' ', a.nombre, '.');
             end;
         end;
+        close(mae);close(lis);
     end;
 var
     mae:maestro;
