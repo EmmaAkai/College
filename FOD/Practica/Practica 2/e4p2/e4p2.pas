@@ -45,41 +45,44 @@ procedure leer(var archivo: detalle; a:agen);
     end;
 
 
-//---Este proceso se hace cuando tengo 2 detalles----------------
+//---Este proceso se hace cuando tengo 2 o mas detalles----------------
 procedure minimo(var min,p1,p2:prov; var det1,det2: detalle);
     begin
         if(p1.nombre < p2.nombre) then begin
-            min:= r1;
+            min:= p1;
             leer(det1,p1);
         end
         else
-            min:=r2;
+            min:=p2;
             leer(det2,p2);
     end;
 
 procedure actualizar(var mae:maestro; var det1,det2:detalle);
+    var
         p:prov;
         min,a1,a2:agen;
         nomAct:=str30;
     begin
         reset(mae);reset(det1);reset(det2);
 
-        leer(det1,p1);
-        leer(det2,p2);
+        leer(det1,a1);
+        leer(det2,a2);
         minimo(min,a1,a2,det1,det2)
         while(min.nombre <> fin) do begin
             nomAct:= min.nombre;
-            //busco la provincia leida en el detalle en el archivo maestro
-            while(a.nombre = nomAct) do
-                leer(mae,p);
+            //busco la provincia leida del detalle en el archivo maestro
+            read(mae,p);
+            while(a.nombre <> nomAct) do
+                read(mae,p);
 
-            //actualizo el maestro
+            //actualizo el el registro
             while(min.nombre = nomAct) do begin
                 p.cantAlf:= p.cantAlf + min.cantAlf;
                 p.cantEncu:= p.cantEncu + min.cantEncu;
                 minimo(min,a1,a2,det1,det2);
             end;
 
+            //le enchufo el registro al maestro
             seek(mae,filepos(mae)-1);
             write(mae,p);
 
