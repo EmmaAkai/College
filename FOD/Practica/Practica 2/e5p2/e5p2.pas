@@ -42,8 +42,8 @@ type
     maestro = file of producto; 
 
     detalle = file of venta;
-    vDetalle = array [1..s] of detalle;
-    vVentas = array [1..s] of venta; 
+    vectorDetalle = array [1..s] of detalle;
+    vectorVentas = array [1..s] of venta; 
 
 
 procedure leer(var det:detalle; var v:venta);
@@ -55,7 +55,7 @@ procedure leer(var det:detalle; var v:venta);
     end;
 
 
-procedure minimo (var vVen:vVentas; var min:venta; var vDet:vDetalle);
+procedure minimo (var vVen:vectorVentas; var min:venta; var vDet:vectorDetalle);
     var
         i,iMin:integer;
     begin
@@ -64,16 +64,16 @@ procedure minimo (var vVen:vVentas; var min:venta; var vDet:vDetalle);
         for i:= 1 to s do begin
             if (vVen[i].cod <> valoralto) then
                 if (vVen[i].cod < min.cod) then begin
-                    min:=v[i];
+                    min:=vVen[i];
                     iMin:= i;
                 end;
         end;
         if (iMin <> 0) then begin
-            leer(vDet[iMin],v[iMin]);
+            leer(vDet[iMin],vVen[iMin]);
         end;
     end;
 
-procedure actualizar(var mae:maestro; var vDet:vDetalle; var vVen: vVentas);
+procedure actualizar(var mae:maestro; var vDet:vectorDetalle; var vVen: vectorVentas);
     var
         min:venta;
         aString:string;
@@ -123,7 +123,7 @@ procedure pasarAaTexto(var mae:maestro; var txt:texto)
         rewrite(txt);
         while(not eof(mae)) do begin
             read(mae,p);
-            if(p.stockMin < p.stockDis) then
+            if(p.stockMin > p.stockDis) then
                 writeln(txt,p.cod,': ', p.nombre,', ', p.descri,'. Disponible: ',p.stockDis,'. Minimo: ', p.stockMin,'. $',p.precio);
         end;
         close(mae);
@@ -132,8 +132,8 @@ procedure pasarAaTexto(var mae:maestro; var txt:texto)
 var
     mae:maestro;
     txt:text;
-    vDet:vDetalle;
-    vVen:vVentas;
+    vDet:vectorDetalle;
+    vVen:vector Ventas;
 begin
     Assing(mae,'Maestro');
     Assign(txt,'Texto');
