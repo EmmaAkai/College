@@ -39,6 +39,7 @@ begin
         leer(Maestro, p); //busco a carlos garcia
     //hasta que lo encuentro
     p.nombre := '***'; //marco el registro como eliminado
+    p.apellido := '***'; //marco el registro como eliminado
 
     seek(Mestro, filepos(Maestro) - 1); //me posiciono en el registro que quiero modificar
     write(Maestro, p); //modifico el registro cambiando el nombre por ***

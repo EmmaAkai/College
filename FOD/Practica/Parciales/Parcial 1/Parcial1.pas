@@ -106,6 +106,8 @@ procedure actualizar(var mae:maestro; var VecDetalle:vectorDetalle; var VecCarre
                 kmsTot:=kmsTot+min.kmsTot;
                 if(min.gano = 1) then
                     ganoTot:=ganoTot+1;
+
+
                 minimo(vecDetalle,vecCarrera,min);
             end; //LEI OTRO CORREDOR
             
