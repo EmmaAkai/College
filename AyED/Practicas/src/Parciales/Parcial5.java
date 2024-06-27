@@ -21,7 +21,7 @@ public class Parcial5 {
 		int tot = 0;
 		
 		if(ab.hasLeftChild())
-			tot +=  sumaImparesPosOrdenMayorA(ab.getLeftChild(),num);
+			tot += sumaImparesPosOrdenMayorA(ab.getLeftChild(),num);
 		if(ab.hasRightChild())
 			tot += sumaImparesPosOrdenMayorA(ab.getRightChild(),num);
 		

@@ -16,13 +16,13 @@ public class Parcial3 {
 
 	public BinaryTree<SumDif> sumAndDif(BinaryTree<Integer> ab){
 		BinaryTree<SumDif> abNuevo = new BinaryTree<>(); //Instancio el nuevo arbol
-		 
+
 		if(!ab.isEmpty())// si el Arbol original no es empi 
 			this.resolver(ab,abNuevo,0,0); //entro a resolver
 		
 		return abNuevo; //si estaba vacio devuelvo un nuevo arbol vacio
 	}
-	
+
 	private void resolver(BinaryTree<Integer> ab, BinaryTree<SumDif> abNuevo, int sum, int dif) {
 		int datoActual = ab.getData(); //inicializo el dato actual con el dato del ab original
 		

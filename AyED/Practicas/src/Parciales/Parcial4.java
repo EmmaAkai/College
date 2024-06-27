@@ -40,9 +40,11 @@ public class Parcial4 {
 		if(ab.hasRightChild())
 			der = resolver2(ab.getRightChild(),List);
 		
+		//si el numero de descendientes en el subarbol izq y der
 		if(izq == der)
 			List.add(ab.getData());
 		
+		//retorna el numero total de descendientes(izq + der) + 1(el propio nodo actual)
 		return izq + der + 1;
 	}
 

@@ -15,9 +15,9 @@ public class Parcial2 {
 	
 	public int sumaElementosProfundidad(int p) {
         if(!ab.isEmpty())
-        	return sumaElementosProfundidad(p,ab,0);
+            return sumaElementosProfundidad(p,ab,0);
         else
-        	return 0;
+            return 0;
     }
     
     private int sumaElementosProfundidad(int p, BinaryTree<Integer> ab, int nivActual) {
@@ -26,9 +26,9 @@ public class Parcial2 {
         } else {   //sino
             int suma = 0; //instancio Suma
             if(ab.hasLeftChild()) //si tiene hijo izquierdo
-            	suma+= sumaElementosProfundidad(p, ab.getLeftChild(), nivActual+1);//Recurso al hijo derecho izquierdo el nivel act
+                suma+= sumaElementosProfundidad(p, ab.getLeftChild(), nivActual+1);//Recurso al hijo derecho izquierdo el nivel act
             if(ab.hasRightChild())	//si tiene hijo derecho
-            	suma+= sumaElementosProfundidad(p, ab.getRightChild(), nivActual+1);//Recurso al hijo derecho , lvl+1
+                suma+= sumaElementosProfundidad(p, ab.getRightChild(), nivActual+1);//Recurso al hijo derecho , lvl+1
             return suma; //retorno suma
         }
     }
