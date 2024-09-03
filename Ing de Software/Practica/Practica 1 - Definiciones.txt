@@ -44,10 +44,18 @@ Ingenieria de software.
 
   f. Enumerar problemas de comunicación que pueden existir en la elicitación de requisitos.
         Problamas de comunicacion en la elicitacion de requisitos:
+            (SOLO PEDIAN 3 PERO ANOTÉ TODAS)
             - Dificultad para expresar las necesidades.
             - No ser concientes de sus propias necesidades.
             - No entender como puede ayudar la tecnologia.
             - Miedo a parecer incompetentes por ignorancia tecnologica.
+            - No tomar deciciones por no poder prever las consecuencias, no entender las
+                alternativas o no tener una version global.
+            - Cultura o vocabulario diferentes.
+            - Intereses distintos en el sistema a desarrollar.
+            - Medios de comunicacion inadecuados(Diagramas que no entienden los clientes).
+            - Conflictos personales o politicos.
+            - ETC.
 
 
       
