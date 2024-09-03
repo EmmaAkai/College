@@ -1,0 +1,53 @@
+Ingenieria de software.
+-Practica 1:
+
+1)
+  a. ¿Que es un Requerimiento?
+      Un requerimiento es una caracteristica del sistema, o una descripcion de algo
+    que el sistema es capaz de hacer para cumplir propocitos del sistema.
+
+  b. Definir requerimientos funcionales y no funcionales:
+        Requerimientos funcionales: Definen acciones y comportamientos especificos
+                                    del sistema.
+             "    no funcionales: Definen como debe comportarse el sistema en terminos
+                                    de rendimiento, seguridad, usabilidad, etc.
+  
+  c. ¿Que es un Stakeholder?
+        Se refiere a cualquier persona o grupo que se vera afectado por el sistema,
+      directa o indirectamente.
+
+  d. ¿Cuales son las fuentes mas importantes para la obtencion de informacion?
+        Entre los metodos de recopilacion de informacion se encuentran los metodos discretos,
+      pero estos se consideran insuficientes cuando se utilizan por si solos.
+            
+            - Muestreo de la documentacion, formularios y los datos existentes.
+            - Investigacion y visitas al sitio.
+            - Observacion del ambiente del trabajo.
+
+        Otro metodo de recopilacion es el metodo interactivo, este se basa en hablar directamente
+      con las personas en la organizacion y escuchar para comprender.
+
+            - Cuestionarios.
+            - Entrevistas.
+            - Planeacion conjuntas de requerimientos (JRP o JAD).
+            - Brainstorming.
+
+  e. Indicar los puntos de vista que se pueden reconocer en un proyecto de software.
+        Existen 3 tipos genericos de puntos de vista:
+            - Interactuadores: representan a las personas u otros sistemas que interactuan con
+                                el sistema directamente influyendo en los requerimientos de 
+                                algun modo.
+            - Indirectos: Representan a los StakeHolders que no utilizan el sistema, pero
+                            influyen en los requermientos de algun modo.
+            - Dominio: Representan las caracteristicas y restricciones del dominio que influyen
+                            en los requerimientos del sistema.
+
+  f. Enumerar problemas de comunicación que pueden existir en la elicitación de requisitos.
+        Problamas de comunicacion en la elicitacion de requisitos:
+            - Dificultad para expresar las necesidades.
+            - No ser concientes de sus propias necesidades.
+            - No entender como puede ayudar la tecnologia.
+            - Miedo a parecer incompetentes por ignorancia tecnologica.
+
+
+      
