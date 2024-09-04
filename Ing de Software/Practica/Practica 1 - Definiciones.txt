@@ -1,6 +1,9 @@
 Ingenieria de software.
 -Practica 1:
 
+----- PARTE I: OBTENCION DE REQUERIMIENTOS -----
+
+
 1)
   a. ¿Que es un Requerimiento?
       Un requerimiento es una caracteristica del sistema, o una descripcion de algo
@@ -58,4 +61,87 @@ Ingenieria de software.
             - ETC.
 
 
+
+
+----- PARTE II: ENTREVISTAS -----
+
+  1)
+    a. Describir qué tipo de información puede obtenerse en una entrevista.
+        - En una entrevista se recolecta informacion de las personas a traves
+            de la interaccion cara a cara para conocer opiniones y sentimientos
+            del entrevistado.
+    
+    b. Enumerar y describir brevemente las etapas de la preparación de una entrevista.
+        i.    Leer los antecedentes: 
+                    Buscar un vocabulario en común, imprescindible para
+                     poder entender al entrevistado.
+        
+        ii.   Establecer los objetivos de la entrevista:
+                    Usando los antecedentes los directivos suelen proporcionar
+                     una vision general, mientras que los futuros usuarios
+                     una mas detallada.
+
+        iii.  Seleccionar los entrevistados:
+                    Se debe minimizar el numero de entrevistas, conociendo con
+                     antelacion el objetivo de la misma.
+
+        iv.   Planificacion de la entrevista y preparacion del entrevistado:
+                    Establecer lugar, fecha, hora y duracion de cada entrevista.
+
+        v.    Seleccion del tipo de preguntas y su estructura.
+                    Preguntas abiertas o cerradas. 
+                    Y su estructura: Piramidal,embudo o diamante.
+
+    c. Enumerar y describir brevemente qué tipos de preguntas puede contener una entrevista.
+        Detalle ventajas y desventajas de cada una.
+
+        - Preguntas abiertas: Permiten al encuestado responder de cualquier manera.
+              
+              Ventajas:     · Revelan nueva linea de preguntas.
+                            · Hacen mas interesante la entrevista.
+                            · Permiten espontaneidad.
+              
+              Desventajas:  · Pueden dar muchos detalles irrelevantes.
+                            · Se puede perder el control de la entrevista.
+                            · Parece que el entrevistador no tiene objetivos claros.
+        
+        - Preguntas cerradas: Las respuestas son directas, cortas o de seleccion especifica.
+
+              Ventajas:     · Ahorran tiempo.
+                            · Se mantiene mas facil el control de la entrevista.
+                            · Se consiguen datos relevantes.
+              
+              Desventajas:  · Pueden aburrir al encuestado.
+                            · No se obtienen detalles.
+                      
+        - Preguntas de Sondeo: Permiten obtener mas detalles sobre un tema especifico.
+
+              Ventajas:     · Permite al encuestado detallar mas las respuestas.
+
+              Desventajas:  · Pueden perder tiempo.
+                            · Si no esta bien planteada pueden dar datos irrelevantes.
+
+      d. Enumerar y describir brevemente qué tipo de estructuras y organización
+          existen para el armado de una entrevista.
+
+          - Piramidal: Es de tipo inductivo, donde se inicia la entrevista con preguntas
+                          cerradas y se finaliza con preguntas abiertas.
+
+          - Embudo: Es de tipo deductivo, donde se inicia la entrevista con preguntas
+                          abiertas y se finaliza con preguntas cerradas.
+          
+          - Diamante Es una combinacion de las anteriores, donde se inicia con preguntas
+                          cerradas, y se termina con preguntas cerradas. Pero en el Medios
+                          hubieron preguntas abiertas para profundizar los temas.
+
+
+      e. Analizar un formato de la planilla adecuado al momento de armar una entrevista.
+            ??? irrelevantes
+      f. Analizar un formato de la planilla adecuado al momento de terminar una entrevista.
+            ??? x2
+
+
+                     
+                
+ 
       

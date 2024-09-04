@@ -12,3 +12,66 @@
         
         El sistema sólo se utilizará en el ámbito de la facultad de Informática y deberá adecuarse
         a la reglamentación sobre privacidad de los datos en el ámbito de la misma
+
+         a. Stakeholders organizados segun su punto de vista:
+
+            - Interactuadores:   · Estudiantes de Ing I.
+                                 · Profesores de Ing I.
+                        Ya que son los estudiantes y los profesores quienes interactuan directamente
+                        los estudiantes al dar el presente y los profesores al tomar la asistencia.
+
+            - Indirectos:        · JTP de Ing I. (Proporciona la autorizacion)
+                                 · Oficina de alumnos. (Proporciona la informacion de cada alumno)
+                                 · Facultad de Informatica. (Proporciona el lector de huella digital)
+                                 · Catedra de Ingenieria. ()
+            
+            - Dominio:           · El sistema solo se utilizara en el ambito de la facultad de Informatica
+                                    y debera adecuarse a la reglamentacion sobre la privacidad de los datos
+                                    en el ambito de la misma.
+            
+            Fuentes de Informacion:
+                  - Estudiantes de Ing I.
+                  - Profesores de Ing I.
+                  - Oficina de Alumnos.
+                  - JTP de Ingenieria.
+                  - Listado de alumnos.
+                  - Reglamentacion sobre la privacidad de los datos.
+
+
+      b. Se desea desarrollar un sistema para gestionar y administrar la atención de pacientes en
+         una clínica privada especializada en tratamientos alérgicos. Cuando un paciente nuevo es
+         ingresado a la clínica el empleado registra todos sus datos personales, posteriormente un
+         enfermero registra los controles y realiza las anotaciones habituales (temperatura, presión,
+         peso, reacciones alérgicas, etc.).
+
+         Luego, el paciente es derivado con alguno de los doctores de la clínica, quién registra qué
+         tratamientos deberá realizar. El médico también se encarga de registrar si el paciente debe
+         quedar internado y debe mantener su historia clínica durante el período que dure el tratamiento.
+         
+         Se sabe que el director de la clínica puede consultar las historias clínicas de todos los pacientes.
+         El sistema debe adecuarse a las normativas impuestas por el ministerio de salud de la
+         provincia de Bs As.
+
+         b. Stakeholders organizados segun su punto de vista:
+
+            - Interactuadores:      · Enfermeros.
+                                    · Doctores.
+                                    · Director de la clinica.
+
+            - Indirectos:           · Pacientes.
+                                    · Clinica. (PREGUNTAR XQ ESTA, SI CON LA MISMA MONEDA PODRIA ESTAR LA MUNICIPALIDAD O ETC)
+                                    · Informacion sobre tratamientos alergicos.
+
+            - Dominio:              · El sistema debe adecuarse a las normativas impuestas
+                                       por el ministerio de salud de la provincia de Bs As.
+
+            
+            Fuentes de informacion:
+               - Pacientes(Temperatura, presion, etc).
+               - Enfermeros.
+               - Doctores.
+               - Director.
+               - Informacion de los tratamientos.
+               - Informacion de las historias clinicas.
+               - Informacion de las normativas impuestas por el ministerio.
+               - Clinica.
