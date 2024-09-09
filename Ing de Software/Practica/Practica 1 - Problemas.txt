@@ -1,5 +1,15 @@
+Ingenieria de software.
+-Practica 1:
 
-1) Indicar para cada problema quiénes podrían ser los Stakeholders, los puntos de vista
+    
+
+----- PARTE I: OBTENCION DE REQUERIMIENTOS -----
+
+
+
+1)    -Problemas:
+
+Indicar para cada problema quiénes podrían ser los Stakeholders, los puntos de vista
      y las fuentes de información.
 
      a. En un sistema de registro de asistencia a través de técnicas biométricas (huella digital)
@@ -75,3 +85,189 @@
                - Informacion de las historias clinicas.
                - Informacion de las normativas impuestas por el ministerio.
                - Clinica.
+
+
+   
+----- PARTE II: Entrevistas -----
+
+2) 
+ - Situación 1:
+      Tiene una entrevista con el gerente de ventas de una empresa el cual desea informatizar dicho sector
+      pero no tuvo tiempo de preparar las preguntas por lo que le pidió a un nuevo empleado que le prepare
+      algunas. Cuando las lee, se da cuenta que son inadecuadas.
+      
+      Leer las preguntas y volver a redactarlas de una manera más apropiada. Especificar por qué le parece
+      inadecuada cada una de ellas.
+
+      a. Sus subordinados me dijeron que la empresa no anda bien. ¿Es cierto?
+
+         - ¿En que condiciones se encuentra la empresa hoy en dia?
+            Evidiencia la mala opinion de los empleados y asume que no anda bien.
+      
+      b. Soy nuevo en esto. ¿Qué he dejado afuera?
+         - ¿Nos hemos saltado algun detalle importante? / ¿Hay algo mas que deberia saber?
+            Evidencia la inexperiencia e ignorancia del entrevistador 
+
+      c. ¿Estará usted de acuerdo con los demás gerentes de ventas, respecto a que computarizar las
+      ventas mensuales y luego realizar un análisis de la tendencia tendría usted grandes mejoras?
+         - ¿Cree que estan todos de acuerdo con informatizar la empresa?
+            Era larga y compleja.
+
+      d. ¿No habrá una mejor manera de hacer proyecciones de sus ventas, que ese procedimiento anticuado
+      que usted utiliza?
+         - ¿Existira una mejor manera de hacer proyecciones de sus ventas?
+            Era critica con su anterior metodo.
+
+
+- Situacion 2:
+   Apenas ha entrado a la oficina de su entrevistado se da cuenta que él no ha dejado de revisar papeles,
+   mirar el reloj y hacer llamadas telefónicas. Usted supone que se siente nervioso porque está atrasado
+   con otro trabajo que tiene que terminar.
+
+   a. Explicar brevemente cómo resolvería tal situación.
+         - Le explicaria que la entrevista seria breve y no tomaria mucho de su tiempo, ademas de
+            ofrecerle reprogramarla para otro dia.
+
+   b. Qué opciones propone para el caso en que la entrevista no pueda reprogramarse.
+         - Le dejaria/enviaria un cuestionario para que pudiera resolverlo en cuanto se desocupe.
+
+
+
+- Situacion 3:
+      El siguiente es el primer informe de una entrevista realizada por uno de los miembros de su equipo
+      de análisis de sistemas:
+
+         “En mi opinión, el resultado de la entrevista fue muy bueno. El entrevistado me permitió hablar
+         con él durante una hora y media. Me relató toda la historia del negocio, que fue muy interesante.
+          También mencionó que las cosas no han cambiado desde que él ha estado en la empresa, hace
+         aproximadamente 16 años. 
+          En breve nos reuniremos nuevamente para terminar la entrevista, pues, no tuvimos tiempo para
+         analizar las preguntas que preparé “.
+
+
+      a. Leer atentamente el informe de la entrevista y explicar qué sensación le deja dicho informe.
+         - Deja una senciacion de que la entrevista fue inutil, ya que perdio mucho tiempo y no
+            resolvio las preguntas que necesitaba.
+
+      b. Indicar si existe información que es irrelevante en el informe.
+         - Fue util detallar la historia del negocio pero, seguramente haya demasiados detalles sin
+            importancia.
+      
+      c. Mencionar tres sugerencias que le haría a su compañero de equipo para que realizara una mejor
+      entrevista la próxima vez.
+         -  1. Priorizar y profundizar en las preguntas que preparó.
+            2. Conocer al entrevistador cuando las preguntas mas importantes hayan sido respondidas.
+            3. Una entrevista no puede durar mas de 40 mins.
+
+
+- Problema 1:
+   Preparar una entrevista para obtener los requerimientos del siguiente problema:
+      Se desea desarrollar un sistema que permita compartir un vehículo para un viaje. La idea es que
+      cuando una persona tiene que realizar un viaje lo publique en la aplicación. Luego el resto de
+      los usuarios se postulan para acompañarla y el chofer podrá seleccionar quienes viajan.
+      
+      El objetivo es abaratar costos y evitar congestiones en el tránsito.
+
+      - ¿Que informacion necesita el chofer de los pasajeros y viceversa?
+
+      - ¿De que gastos esta dispuesta a hacerse cargo la empresa?
+
+      - ¿Que requisitos se deben cumplir para ser un chofer?
+
+      - ¿De que manera se seleccionaria el recorrido hecho por el chofer, el mas rapido
+            o el que recoja a mas pasajeros?
+
+      - ???
+
+
+- Problema 2:
+   Preparar una entrevista para obtener los requerimientos del siguiente problema:
+
+    CookBooks es un negocio pequeño manejado por una pareja jubilada. Hasta este momento, Cookbooks ha
+   vendido sus libros sólo a través de pedidos por correo. Los dueños ahora quieren desarrollar un
+   sistema en línea para vender libros de cocina difíciles de conseguir y agotados a través de internet.
+    Los visitantes podrán hojear diferentes libros de cocina, pero tendrán que crear una cuenta del cliente
+   antes de poder hacer una compra. Los pagos se aceptarán sólo en línea con una tarjeta de crédito
+   reconocida.
+
+      - ¿Quien se encarga de los envios, o se deben retirar?
+
+      - ¿Tendra un catalogo de recetas para ver que contiene cada libro?
+
+      - ¿De que forma estaran filtrados los libros?
+
+      - ¿Tienen pensado expandir el tipo de libro que venden, o solo de cocina?
+
+      - ¿Habra reembolsos?¿Cuanto tiempo tendria?
+
+
+
+----- PARTE III: Cuestionarios -----
+
+1)  Alguien nuevo en el centro de cómputo de un gimnasio que tiene varias sucursales,
+   viene con muchas ganas de mejorar las cosas que ve dentro del mismo. Dicho centro está
+   desarrollando un sistema en red que usarán todas las sucursales.
+ 
+   Dado el siguiente cuestionario verifique si es necesario reescribir las preguntas,
+   justificar:
+
+   - Cuestionario 1:
+          ¡Urgente! Complételo y devuélvalo de manera inmediata, sino su cheque de pago será
+         retenido hasta que devuelva el presente.
+         
+         1. En pocas palabras indique qué problemas ha tenido el actual centro de cómputo.
+
+         2. ¿Habrá alguien que piense de la misma manera que usted? Enumere sus nombres. X
+            - No es necesario enumerar sus nombres, mientras el problema sea logico,
+               deberia ser resuelto.
+         3. ¿Cuántas PC han fallado en estos últimos 6 meses?
+
+         4. ¿Cuál es el problema más grande que enfrenta al comunicar sus problemas al
+               centro de cómputo?
+
+
+2)
+    El siguiente es un cuestionario diseñado por un empleado de una empresa textil que se
+   especializa en fabricar medias para hombres. Este empleado lo escribió en calidad de
+   gerente de la oficina que tiene a cargo la propuesta de compra / implementación de un
+   nuevo sistema de cómputos.
+
+   a. Reformular o eliminar las preguntas que considere inapropiadas.
+   b. Realizar una crítica sobre el diseño y el estilo en cuanto a espacio en blanco, espacio para las respuestas,
+         facilidad para responder, etc.
+   c. Escribir el cuestionario nuevamente, teniendo en cuenta lo respondido en los puntos a y b.
+
+
+   - Cuestionario 2:
+         ¡Hola a todos los empleados!
+         
+          Según los rumores, estamos tras una nueva computadora. Aquí hay algunas preguntas
+         para que reflexionen:
+         - a. ¿Cuánto tiempo ha usado la computadora vieja?_______________________
+            - no aporta ninguna informacion necesaria
+         - b. ¿Con que frecuencia se descompone?_______________________________
+            - Mal diseño al tratar una pregunta cerrada.
+         - c. ¿Quién la repara?________________________________________________
+            - En que influye saber quien la repara?
+         - d. ¿Cuándo fue la última vez que usted sugirió una mejora al sistema de cómputos y
+               esta se puso en práctica? ¿De qué se trató?________________
+               -No importa en cuando, sino el que.
+         - e. ¿Cuándo fue la última vez que usted sugirió una mejora al sistema de cómputos y
+               nadie la usó? ¿De que se trató?___________________________
+               - Puede fusionarse con la anterior
+
+         - f. ¿Usted utiliza una pantalla o una impresora, o ambas?___________________
+         - g. ¿Qué tan rápido escribe en la computadora?___________________________
+               - Que aporta?
+         - h. ¿Cuántas personas necesitan acceder a la base de datos regularmente en su sucursal?
+              ¿Hay alguien que actualmente no utilice la computadora y que le
+                gustaría hacerlo?_________________________________________________
+               -Demasiado larga, podria ser mas resumida y dividida en 2.
+
+      - a. Si utiliza la computadora indique con que frecuencia se descompone: Mucha - Poca - Nada
+      - b. ¿Sugirio antes una mejora en el sistema de computos?, sí si ¿Cual fue o fueron?______________.
+      - c. Si realizo sugerencias, ¿estas fueron puestas en practica? SI - NO
+      - d. ¿Que utiliza en el trabajo? Pantalla - Impresora - Ambas.
+      - e. ¿Como considera su escritura en teclado? Rapida - Normal - Lenta.
+      - f. ¿Cuantas personas acceden a la base de datos regularmente? Indique el numero aprox. ____.
+      - g. ¿Que posicion que no utilice computadora cree que se beneficiaria al utilizarla______________.

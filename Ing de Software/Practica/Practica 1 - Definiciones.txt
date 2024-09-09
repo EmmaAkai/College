@@ -1,6 +1,8 @@
 Ingenieria de software.
 -Practica 1:
 
+    -Definiciones:
+
 ----- PARTE I: OBTENCION DE REQUERIMIENTOS -----
 
 
@@ -65,7 +67,7 @@ Ingenieria de software.
 
 ----- PARTE II: ENTREVISTAS -----
 
-  1)
+  2)
     a. Describir qué tipo de información puede obtenerse en una entrevista.
         - En una entrevista se recolecta informacion de las personas a traves
             de la interaccion cara a cara para conocer opiniones y sentimientos
@@ -136,12 +138,29 @@ Ingenieria de software.
 
 
       e. Analizar un formato de la planilla adecuado al momento de armar una entrevista.
-            ??? irrelevantes
+            ??? irrelevante, No viene al caso como quien dice, como quien no quiere la cosa.
       f. Analizar un formato de la planilla adecuado al momento de terminar una entrevista.
-            ??? x2
+            ??? x2, una banda irrelevante que tiraba, manopla.
 
 
                      
-                
- 
+
+----- PARTE III: Cuestionarios -----
+3)
+      a. Describir qué tipo de información se busca mediante la aplicación de cuestionarios.
+            - Actitud: Lo que las personas quieren.
+            - Creencias: Lo que las personas creen que es verdad.
+            - Comportamiento: Lo que realmente hacen.
+            - Caracteristicas: De las personas o cosas.
+
+      b. Describir bajo qué circunstancia considera apropiado utilizar cuestionarios.
+            - Cuando estan dispersas geograficamente, en distintas oficinas o ciudades.
+            - Cuando hay muchas personas involucradas.
+            - Cuando necesitamos opiniones generales.
+            - Cuando queremos identificar problemas generales.
+      c. Describir los dos tipos de cuestionarios.
+            - Cuestionarios abiertos, permiten al encuestado responder de cualquier manera,
+            - Cuestionarios cerrados, son directas, cortas o de seleccion especifica.
+
+      
       
