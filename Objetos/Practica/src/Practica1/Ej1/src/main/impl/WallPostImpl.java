@@ -1,6 +1,6 @@
-package ar.edu.unlp.oo1.ejercicio1.impl;
+package Practica1.Ej1.src.main.impl;
 
-import ar.edu.unlp.oo1.ejercicio1.WallPost;
+import Practica1.Ej1.src.main.WallPost;
 
 /**
  * Completar esta clase de acuerdo a lo especificado en el cuadernillo
