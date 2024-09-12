@@ -45,12 +45,16 @@ begin
         antProv:=regM.provincia;
         antPart:=regM.partido;
         while((antProv = regM.provincia) and (antPart = regM.partido)) do begin
+            
             write(regM.cuidad, regM.cantVarones, regM.cantMujeres, regM.cantDesocupados);
             tVarones:= tVarones + regM.cantVarones;
             tMujeres:= tMujeres + regM.cantMujeres;
             tDesocupados:= tDesocupados + regM.cantDesocupados;
             leer(inst,regM);
+        
         end;
+        
+        
         writeln('Total partido: ', tVarones,tMujeres,tDesocupados);
         tProvVar:= tProvVar + tVarones;
         tProvMuj:= tProvMuj + tMujeres;
