@@ -125,4 +125,95 @@ Problema 2:
 
     - Dorso:
         Criterios de aceptacion(Cargar carrera):
-            Esc1 → GASPAR CONSAGRA VIVE EN ROSARIO Y LE GUSTAN LOS TRABAS
+            Esc1 → Carga exitosa:
+                    DADO que el nombre de la carrera es unico, y la duracion de la carrera es < 5,
+                    CUANDO el Empleado Administrativo quiera cargar la carrera,
+                    ENTONCES el sistema la registra y la carga.
+
+            Esc2 → Carga fallida por nombre existente:
+                    DADO que el nombre de la carrera ya existe, y la duracion de la carrera es < 5,
+                    CUANDO el empleado Administrativo quiera cargar la carrera,
+                    ENTONCES el sistema registra e informa que la carrera ya existe.
+            
+            Esc3 → Carga fallida por duracion de carrera > 5:
+                    DADO que el nombre de la carrera es unico, y la duracion de la carrera es > 5,
+                    CUANDO el empleado administrativo quiera cargar la carrera,
+                    ENTONCES el sistema registra e informa que la carrera debe tener 5 años maximo.
+
+
+    - Frente:
+        · ID: Registrar alumno.
+        · Titulo: Como alumno quiero registrarme para poder inscribirme a las carreras.
+        · Reglas del negocio:
+                → Nombre de usuario unico.
+                → Contraseña minimo 6 digitos.
+    
+    - Dorso:
+        Criterios de aceptacion(Registrar alumno):
+            Esc1 → Registro exitoso:
+                    DADO que el nombre de usuario es unico y la contraseña > 6 digitos,
+                    CUANDO el alumno registra su nombre y contraseña,
+                    ENTONCES el sistema registra e informa que se ha creado la cuenta.
+
+            Esc2 → Registro fallido por nombre de usuario existente:
+                    DADO que el nombre de usuario ya existe y la contraseña > 6 digitos,
+                    CUANDO el alumno registra su nombre y contraseña,
+                    ENTONCES el sistema informa que el nombre de usuario ya existe.
+
+            Esc3 → Registro fallido por contraseña invalida:
+                DADO que el nombre de usuario es unico y la contraseña < 6 digitos,
+                CUANDO el alumno ingresa su nombre y contraseña,
+                ENTONCES el sistema informa que la contraseña no cumple con los requisitos( > 6 digitos.)
+
+    
+    - Frente:
+        · ID: Iniciar Sesion.
+        · Titulo: Como alumno quiero iniciar sesion a la web de las carreras de posgrado.
+        · Reglas del negocio:
+                → La cuenta debe existir en el sistema.
+    
+    - Dorso:
+        Criterios de aceptacion (Iniciar sesion):
+            Esc1 → Inicio de sesion valido:
+                    DADO que el nombre de usuario y contraseña son correctos,
+                    CUANDO un alumno ingresa sus datos y confirma,
+                    ENTONCES el sistema valida el ingreso y se inicia sesion.
+            
+            Esc2 → Inicio de sesion invalido por nombre de usuario inexistente:
+                    DADO que el nombre de usuario no se encuentra registrado en el sistema y
+                            la contraseña > 6 digitos.
+                    CUANDO un alumno ingresa sus datos y confirma,
+                    ENTONCES el sistema informa que usuario no existe.
+            
+            Esc3 → Inicio sesion invalido por contraseña incorrecta:
+                    DADO que el nombre de usuario existe en la base de datos, y la contraseña
+                            no corresponde con la registrada en el sistema.
+                    CUANDO el alumno ingresa sus datos y confirma,
+                    ENTONCES el sistema informa que la contraseña es incorrecta.
+
+
+    - Frente:
+        · ID: Inscribir a la carrera.
+        · Titulo: Como alumno previamente registrado quiero inscribirme a las carreras.
+        · Reglas del negocio:
+                → Tarjeta de credito valida y fondos.
+
+    - Dorso:
+        Criterios de aceptacion (Inscribir a la carrera):
+            Esc1 → Inscipcion valida:
+                    DADO que la tarjeta de credito es valida y posee fondos,
+                    CUANDO ingresa los datos de la carrera y de la tarjeta,
+                    ENTONCES se hara efectivo el cobro y la inscripcion e imprime los comprobantes.
+
+            Esc2 → Inscipcion fallida por tarjeta invalida:
+                    DADO que la tarjeta es invalida,
+                    CUANDO ingresa los datos de la carrera y la tarjeta,
+                    ENTONCES se informara que la tarjeta es invalida y no se hara la inscripcion.
+
+            Esc3 → Inscripcion fallida por falta de fondos:
+                    DADO que la tarjeta es valida, y no posee fondos suficientes,
+                    CUANDO ingresa los datos de la carrera y de la tarjeta,
+                    ENTONCES se informara que la tarjeta no posee suficientes fondos.
+
+
+                
