@@ -120,4 +120,9 @@ Problema 2:
         · ID: Cargar carrera
         · Titulo: Como Empleado Administrativo quiero cargar las carreras al sistema.
         · Reglas de negocio:
-                →
+                → El nombre de la carrera no debe repetirse.
+                → Maximo 5 años.
+
+    - Dorso:
+        Criterios de aceptacion(Cargar carrera):
+            Esc1 → GASPAR CONSAGRA VIVE EN ROSARIO Y LE GUSTAN LOS TRABAS
