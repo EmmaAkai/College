@@ -1,0 +1,123 @@
+
+--- Historias de Usuario ---
+
+    ------Plantilla:------
+        
+        - Frente
+            ID: Matricular Persona
+            Titulo: Como "Persona" quiero matricularme al instituto para poder hacer los cursos.
+            Reglas:
+                    → Un dni no puede estar registrado 2 veces con diferentes matriculas.
+                    → El pago debe realizarse con tarjeta de credito.
+        - Dorso
+            Criterios de aceptacion(Matricular Persona):
+                Esc1 → Matriculacion exitosa.
+                        - "DADO" que el dni no se encuentra matriculado y la persona posee una
+                                    tarjeta de credito valida,
+                          "CUANDO" la persona ingresa sus datos y los de una tarjeta valida.
+
+                          "ENTONCES" el sistema matricula a la persona, genera su numero de
+                                    matricula y registra el pago.
+                
+                Esc2 → Matriculacion fallida por matriculado existente:
+                        - "DADO" que el dni ya se encuentra matriculado,y la persona posee
+                                    una tarjeta valida,
+                          "CUANDO" la persona ingresa sus datos y los de su tarjeta,
+
+                          "ENTONCES" el sistema informa que la persona ya se encuentra matriculada
+                        
+                Esc3 → etc...
+
+
+Problema 1
+    - Frente:
+        · ID: Alta mobiliario.
+        · Titulo: Como "Encargado" quiero dar de alta los distintos mobiliarios para alquilarse.
+        · Reglas de negocio:
+                → Un mueble no puede estar registrado 2 veces.
+    - Dorso:
+        Criterios de aceptacion (Alta mobiliario):
+            Esc1 → Alta exitosa:
+                    DADO que el mueble con codigo 1111 no existe,
+                    CUANDO el encargado lo registre con el codigo 1111,
+                    ENTONCES el sistema realiza e informa el alta del mueble.
+            
+            Esc2 → Alta fallida:
+                    DADO que el mueble con codigo 1111 ya existe,
+                    CUANDO el encargado lo registre con el codigo 1111,
+                    ENTONCES el sistema informara que ya existe un mueble con
+                            ese codigo y no lo registrara.
+            
+    
+    - Frente:
+        · ID: Reserva alquiler
+        · Titulo: Como "Usuario" quiero realizar una reserva de un alquiler.
+        · Reglas de negocio:
+                → Haya mobiliario disponible.
+                → Como minimo 3 muebles.
+                → Tarjeta de credito valida.
+
+    - Dorso:
+        Criterios de aceptacion(Reserva alquiler):
+            Esc1 → Reserva exitosa:
+                    DADO que hay Stock, se eligieron + de 3 muebles y se uso una tarjeta valida
+                    CUANDO el usuario ingresa sus datos y los de la reserva,
+                    ENTONCES el sistema realiza e informa la reserva del alquiler.
+            
+            Esc2 → Reserva fallida por falta de stock:
+                    DADO que NO HAY stock, se eligieron + de 3 muebles y se uso una tarjeta valida
+                    CUANDO el usuario ingresa sus datos y los de la reserva,
+                    ENTONCES el sistema informa que no hay stock.
+
+            Esc3 → Reserva fallida por cantidad de muebles invalida
+                    DADO que hay Stock, se eligieron - de 3 muebles y se uso una tarjeta valida
+                    CUANDO el usuario ingresa sus datos y los de la reserva,
+                    ENTONCES el sistema informa que la reserva minima son de 3 muebles.
+
+            Esc4 → Reserva fallida por tarjeta invalida
+                    DADO que hay Stock, se eligieron + de 3 muebles, y se uso una tarjeta invalida
+                    CUANDO el usuario ingresa sus datos y los de la reserva,
+                    ENTONCES el sistema informa que los datos de la tarjeta son invalidos.
+
+    
+    - Frente:
+        · ID: Realizar pago
+        · Titulo: Como "Usuario" quiero pagar con mi tarjeta de credito para reservar el alquiler
+        · Reglas de negocio:
+                → Abonar el 20% total del alquiler.
+            
+    - Dorso:
+        Criterios de aceptacion(Realizar pago):
+            Esc1 → Pago exitoso:
+                    DADO que los datos de la tarjeta son validos, el usuario abona el 20% del pago, 
+                            y la tarjeta tiene saldo.
+                    CUANDO el usuario ingresa los datos de la tarjeta,
+                    ENTONCES el sistema registra y realiza el pago.
+            
+            Esc2 → Pago fallido por datos invalidos:
+                    DADO que los datos de la tarjeta son invalidos, el usuario abona 20% del pago,
+                            y la tarjeta tiene saldo.
+                    CUANDO el usuario ingresa los datos de la tarjeta,
+                    ENTONCES el sistema registra e informa que los datos de la tarjeta son invalidos.
+            
+            Esc3 → Pago fallido por no abonar el 20%
+                    DADO que los datos de la tarjeta son validos, el usuario abona no del 20% del pago,
+                            y la tarjeta tiene saldo.
+                    CUANDO el usuario ingresa los datos de la tarjeta,
+                    ENTONCES el sistema registra e informa que se debe abonar el 20% del pago.
+
+            Esc4 → Pago fallido por limite de tarjeta:
+                    DADO que los datos de la tarjeta son validos, el usuario abona el 20% del pago,
+                        y la tarjeta no posee limite suficiente para realizar el pago.
+
+
+
+
+
+Problema 2:
+
+    - Frente:
+        · ID: Cargar carrera
+        · Titulo: Como Empleado Administrativo quiero cargar las carreras al sistema.
+        · Reglas de negocio:
+                →
