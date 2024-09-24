@@ -1,4 +1,4 @@
-package Practica1.Ej1.src.main.ui;
+package ar.edu.unlp.oo1.ejercicio1.ui;
 
 import java.awt.GridLayout;
 
@@ -13,8 +13,8 @@ import javax.swing.JTextArea;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import Practica1.Ej1.src.main.WallPost;
-import Practica1.Ej1.src.main.impl.WallPostImpl;
+import ar.edu.unlp.oo1.ejercicio1.WallPost;
+import ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl;
 
 public class WallPostUI {
 

@@ -1,8 +1,8 @@
-package Practica1.Ej1.src.main;
+package ar.edu.unlp.oo1.ejercicio1;
 
 import javax.swing.SwingUtilities;
 
-import Practica1.Ej1.src.main.ui.WallPostUI;
+import ar.edu.unlp.oo1.ejercicio1.ui.WallPostUI;
 
 public class Ejercicio1Application {
 

@@ -1,11 +1,11 @@
-package Practica1.Ej1.src.test;
+package ar.edu.unlp.oo1.ejercicio1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Practica1.Ej1.src.main.impl.WallPostImpl;
+import ar.edu.unlp.oo1.ejercicio1.impl.WallPostImpl;
 
 /**
  * A WallpostTest is a test class for testing the behavior of Wallpost
