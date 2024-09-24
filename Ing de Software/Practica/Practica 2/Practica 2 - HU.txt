@@ -216,4 +216,76 @@ Problema 2:
                     ENTONCES se informara que la tarjeta no posee suficientes fondos.
 
 
+
+Problema 3: 
+    
+    - Frente:
+        · ID: Confeccionar minuta.
+        · Titulo: Como empleado quiero confeccionar una minuta.
+        · Reglas del Negocio:
+                → No debe superar los $25.000
+                → Duracion maxima 6 meses.
+    - Dorso:
+        Criterios de aceptacion(Confeccionar minuta)
+                Esc1 → Confeccion valida:
+                        DADO que el monto no supera los $25.000 y dura menos de 6 meses,
+                        CUANDO ingresa los datos de la persona y de la confeccion,
+                        ENTONCES se registra y se valida la confeccion en el sistema.
+
+                Esc2 → Confeccion invalida por monto excedente:
+                        DADO que el monto SUPERA los $25.000 y dura menos de 6 meses,
+                        CUANDO ingresa los datos de la persona y de la confeccion,
+                        ENTONCES no se registra e informa que el monto excede el limite permitido.
                 
+                Esc3 → Confeccion invalida por duracion maxima excedida:
+                        DADO que el monto no supera los $25.000 y dura mas de 6 meses,
+                        CUANDO ingresa los datos de la persona y de la confeccion,
+                        ENTONCES no se registra e informa que la duracion excede el limite permitido.
+
+    - Frente:
+        · ID: Aprobar minuta.
+        · Titulo: Como empleado quiero comprobar si la minuta es apta para su aprobacion.
+        · Reglas del negocio:
+                → Que la minuta exista previamente
+                → Que la persona posea menos de 3 minutas en vigencia.
+                → Conexion con el servidor de AFIP.
+                → CUIT habilitado por la afip.
+   
+    - Dorso:
+        Criterios de Aceptacion(Aprobar Minuta):
+                Esc1 → Aprobacion exitosa:
+                        DADO que el numero de minuta es valido, la persona posee menos
+                                de 3 minutas en vigencia, hay conexion con el servidor de afip
+                                por lo que se pudo comprobar que el CUIT esta habilitado.
+                        CUANDO se ingresa el numero de la minuta,
+                        ENTONCES el sistema registra la minuta y la agrega al sistema.
+
+                Esc2 → Aprobacion fallida por minuta inexistente:
+                        DADO que el numero de minuta es invalido y no se encuentra en el
+                                sistema,
+                        CUANDO se ingresa el numero de minuta,
+                        ENTONCES no se registra e informa que el numero de minuta no existe.
+
+                Esc3 → Aprobacion fallida por exceder el limite maximo de minutas en vigencia:
+                        DADO que el numero de minuta es valido, la persona posee mas de
+                                3 minutas en vigencia, hay conexion con el servidor de afip
+                                por lo que se pudo comprobar que el CUIT esta habilitado,
+                        CUANDO se ingresa el numero de minuta,
+                        ENTONCES el sistema no la registra e informa que la persona excedente
+                                la cantidad de minutas minimas.
+
+                Esc4 → Aprobacion fallida por falta de conexion con el server:
+                        DADO que el numero de minuta es valido, la persona posee menos de
+                                3 minutas en vigencia, NO HAY CONEXION con el servidor de afip,
+                                por lo que no sepudo comprobar si el CUIT esta habilitado.
+                        CUANDO se ingresa el numero de minuta,
+                        ENTONCES el sistema no la registra e informa que no hay conexion con
+                                los servidores de la AFIP.
+
+                Esc5 → Aprobacion fallida por CUIT no habilitado:
+                        DADO que el numero ed minuta es valido, la persona posee menos de
+                                3 minutas en vigencia, hay conexion con el servidor de afip,
+                                se comprobo que el CUIT no esta habilitado por la AFIP,
+                        CUANDO se ingresa el numero de minuta,
+                        ENTONCES el sistema no la registra e informa que el CUIT ingresado
+                                no esta habilitado por la AFIP.
