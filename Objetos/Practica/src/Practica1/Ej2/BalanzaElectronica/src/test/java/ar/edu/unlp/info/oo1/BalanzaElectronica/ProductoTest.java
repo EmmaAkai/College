@@ -1,11 +1,11 @@
-package ar.edu.unlp.info.oo1.balanzaElectronica;
+package ar.edu.unlp.info.oo1.BalanzaElectronica;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unlp.info.oo1.balanzaElectronica.Producto;
+import ar.edu.unlp.info.oo1.BalanzaElectronica.Producto;
 
 public class ProductoTest {
 

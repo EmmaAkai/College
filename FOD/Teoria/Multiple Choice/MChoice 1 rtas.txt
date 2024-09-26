@@ -1,0 +1,57 @@
+1_
+g. Ninguna de las anteriores, porque un archivo secuencial no tiene acceso directo
+ 	y típicamente tiene una búsqueda lineal sin índices.
+
+2_
+e. Todas las anteriores, ya que todas las afirmaciones son correctas en el contexto
+	del proceso de actualización maestro-detalle. Puedes realizar el proceso
+ 	independientemente del orden de los archivos.
+
+3_
+e. Hay más de una opción correcta, específicamente las dos primeras: Archivos ordenados
+	con registros de longitud fija y Archivos ordenados con registros de longitud
+	variable. La búsqueda binaria es efectiva solo en conjuntos de datos ordenados,
+	independientemente de la longitud de los registros.
+
+4_
+c. registros de longitud fija se puede recuperar un registro en un solo acceso a disco.
+
+5_
+f. Algunas de las anteriores son válidas, específicamente las afirmaciones que dicen que
+	el archivo puede estar ordenado por al menos un criterio y que puede estar ordenado
+	por al menos dos criterios.
+
+6_
+b.  una clave secundaria identifica varios elementos de un archivo.
+
+7.
+e. f. Todas las anteriores, ya que todas las afirmaciones sobre el comportamiento son válidas.
+
+8.
+ b y c: Algunas de las anteriores
+
+9.
+  Todas las anteriores, ya que todas las afirmaciones sobre un árbol B de orden 
+	M son verdaderas.
+
+10.
+ Todas las anteriores, ya que todos los tipos mencionados (árbol binario, AVL, B° y B+)
+ 	son árboles balanceados que pueden crecer de abajo hacia arriba.
+
+11.
+ a. plicación de dos funciones de dispersión y su uso en caso de saturación.
+
+12.
+ a. Tiene un promedio 1, de acceso a registros, ya que en una función de hashing aceptable,
+ se busca un acceso promedio constante.
+
+13.
+ g. a, b y c → Algunas de las anteriores, ya que las afirmaciones sobre las modificaciones en cada alta y baja son correctas.
+ 
+14.
+ c. La función de Hash es el parámetro fundamental del método, ya que esta afirmación es la más crítica en el contexto
+	 de una política de hash.
+
+15.
+ a. Es inevitable que pueda ocurrir, ya que las colisiones son una característica inherente de las tablas hash.
+ La afirmación b también es correcta, pero la opción más precisa en este caso es la a
