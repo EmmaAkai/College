@@ -1,0 +1,61 @@
+a) Describir qué es el desarrollo centrado en el usuario
+
+    - Se refiere a un enfoque de diseño y desarrollo de sistemas donde las necesidades,
+        expectativas y experiencias de los usuarios finales son el principal factor guía 
+        durante todo el ciclo de vida del sistema.
+
+
+b) Definir qué son los casos de uso y describa cómo se utilizan.
+    
+    - Los casos de uso es el proceso de modelado de las "funcionalidades" del sistema
+        en termino de los eventos que interactuan entre los usuarios y el sistema.
+
+c) Definir qué es un actor y un escenario.
+
+    → Actor: Toda entidad que interactúa directamente con el sistema.
+
+                - Es quien inicia una actividad (CU) en el sistema.
+                - Representa un papel desempeñado por el usuario(rol).
+                - Puede ser una persona, sistema externo o dispositivo externo
+                    que dispare un evento.
+    
+    → Escenario: Descripción detallada de cada Caso de Uso para llevar a cabo la funcionalidad.
+
+                - La interaccion del escenario.
+                - Aquellos eventos que son alternativos.
+
+d) Definir las relaciones que pueden presentarse en el diagrama de casos de uso.
+ Describa cuándo se utiliza cada una
+    
+    → Inclusion:
+        - Representa que un caso de uso reutiliza el comportamiento de otro caso de uso. 
+        - Se usa cuando un conjunto de acciones comunes se repite en varios casos de uso.
+
+    → Extension:
+        - Un caso de uso extiende a otro, lo que significa que agrega comportamiento 
+            opcional al caso de uso base bajo ciertas condiciones.
+        - Se usa cuando un comportamiento adicional o alternativo puede ejecutarse
+            opcionalmente en un caso de uso base, pero solo bajo condiciones específicas.
+    
+    → Generalizacion:
+        -  Indica que un caso de uso o un actor es una especialización de otro. 
+            El caso de uso hijo hereda el comportamiento del caso de uso padre.
+        -  Se usa cuando un caso de uso o actor puede ser visto como una variación
+            especializada de otro.
+
+    → Asociacion:
+        -  Representa la relación entre un actor y un caso de uso.
+            Muestra que el actor participa o interactúa con el caso de uso.
+        -  Se usa siempre que un actor interactúe con un caso de uso,
+            se utiliza una relación de asociación.
+
+e) Enumerar los beneficios de modelar requerimientos del sistema con casos de uso
+    
+    - Herramienta para capturar requerimientos funcionales.
+    - Descompone el alcance del sistema en piezas más manejables.
+    - Medio de comunicación con los usuarios.
+    - Utiliza lenguaje común y fácil de entender por las partes.
+    - Permite estimar el alcance del proyecto y el esfuerzo a realizar.
+    - Define una línea base para la definición de los planes de prueba.
+    - Define una línea base para toda la documentación del sistema.
+    - Proporciona una herramienta para el seguimiento de los requisitos.
