@@ -1,0 +1,166 @@
+Ingenieria de software.
+-Practica 1:
+
+    -Definiciones:
+
+----- PARTE I: OBTENCION DE REQUERIMIENTOS -----
+
+
+1)
+  a. ¿Que es un Requerimiento?
+      Un requerimiento es una caracteristica del sistema, o una descripcion de algo
+    que el sistema es capaz de hacer para cumplir propocitos del sistema.
+
+  b. Definir requerimientos funcionales y no funcionales:
+        Requerimientos funcionales: Definen acciones y comportamientos especificos
+                                    del sistema.
+             "    no funcionales: Definen como debe comportarse el sistema en terminos
+                                    de rendimiento, seguridad, usabilidad, etc.
+  
+  c. ¿Que es un Stakeholder?
+        Se refiere a cualquier persona o grupo que se vera afectado por el sistema,
+      directa o indirectamente.
+
+  d. ¿Cuales son las fuentes mas importantes para la obtencion de informacion?
+        Entre los metodos de recopilacion de informacion se encuentran los metodos discretos,
+      pero estos se consideran insuficientes cuando se utilizan por si solos.
+            
+            - Muestreo de la documentacion, formularios y los datos existentes.
+            - Investigacion y visitas al sitio.
+            - Observacion del ambiente del trabajo.
+
+        Otro metodo de recopilacion es el metodo interactivo, este se basa en hablar directamente
+      con las personas en la organizacion y escuchar para comprender.
+
+            - Cuestionarios.
+            - Entrevistas.
+            - Planeacion conjuntas de requerimientos (JRP o JAD).
+            - Brainstorming.
+
+  e. Indicar los puntos de vista que se pueden reconocer en un proyecto de software.
+        Existen 3 tipos genericos de puntos de vista:
+            - Interactuadores: representan a las personas u otros sistemas que interactuan con
+                                el sistema directamente influyendo en los requerimientos de 
+                                algun modo.
+            - Indirectos: Representan a los StakeHolders que no utilizan el sistema, pero
+                            influyen en los requermientos de algun modo.
+            - Dominio: Representan las caracteristicas y restricciones del dominio que influyen
+                            en los requerimientos del sistema.
+
+  f. Enumerar problemas de comunicación que pueden existir en la elicitación de requisitos.
+        Problamas de comunicacion en la elicitacion de requisitos:
+            (SOLO PEDIAN 3 PERO ANOTÉ TODAS)
+            - Dificultad para expresar las necesidades.
+            - No ser concientes de sus propias necesidades.
+            - No entender como puede ayudar la tecnologia.
+            - Miedo a parecer incompetentes por ignorancia tecnologica.
+            - No tomar deciciones por no poder prever las consecuencias, no entender las
+                alternativas o no tener una version global.
+            - Cultura o vocabulario diferentes.
+            - Intereses distintos en el sistema a desarrollar.
+            - Medios de comunicacion inadecuados(Diagramas que no entienden los clientes).
+            - Conflictos personales o politicos.
+            - ETC.
+
+
+
+
+----- PARTE II: ENTREVISTAS -----
+
+  2)
+    a. Describir qué tipo de información puede obtenerse en una entrevista.
+        - En una entrevista se recolecta informacion de las personas a traves
+            de la interaccion cara a cara para conocer opiniones y sentimientos
+            del entrevistado.
+    
+    b. Enumerar y describir brevemente las etapas de la preparación de una entrevista.
+        i.    Leer los antecedentes: 
+                    Buscar un vocabulario en común, imprescindible para
+                     poder entender al entrevistado.
+        
+        ii.   Establecer los objetivos de la entrevista:
+                    Usando los antecedentes los directivos suelen proporcionar
+                     una vision general, mientras que los futuros usuarios
+                     una mas detallada.
+
+        iii.  Seleccionar los entrevistados:
+                    Se debe minimizar el numero de entrevistas, conociendo con
+                     antelacion el objetivo de la misma.
+
+        iv.   Planificacion de la entrevista y preparacion del entrevistado:
+                    Establecer lugar, fecha, hora y duracion de cada entrevista.
+
+        v.    Seleccion del tipo de preguntas y su estructura.
+                    Preguntas abiertas o cerradas. 
+                    Y su estructura: Piramidal,embudo o diamante.
+
+    c. Enumerar y describir brevemente qué tipos de preguntas puede contener una entrevista.
+        Detalle ventajas y desventajas de cada una.
+
+        - Preguntas abiertas: Permiten al encuestado responder de cualquier manera.
+              
+              Ventajas:     · Revelan nueva linea de preguntas.
+                            · Hacen mas interesante la entrevista.
+                            · Permiten espontaneidad.
+              
+              Desventajas:  · Pueden dar muchos detalles irrelevantes.
+                            · Se puede perder el control de la entrevista.
+                            · Parece que el entrevistador no tiene objetivos claros.
+        
+        - Preguntas cerradas: Las respuestas son directas, cortas o de seleccion especifica.
+
+              Ventajas:     · Ahorran tiempo.
+                            · Se mantiene mas facil el control de la entrevista.
+                            · Se consiguen datos relevantes.
+              
+              Desventajas:  · Pueden aburrir al encuestado.
+                            · No se obtienen detalles.
+                      
+        - Preguntas de Sondeo: Permiten obtener mas detalles sobre un tema especifico.
+
+              Ventajas:     · Permite al encuestado detallar mas las respuestas.
+
+              Desventajas:  · Pueden perder tiempo.
+                            · Si no esta bien planteada pueden dar datos irrelevantes.
+
+      d. Enumerar y describir brevemente qué tipo de estructuras y organización
+          existen para el armado de una entrevista.
+
+          - Piramidal: Es de tipo inductivo, donde se inicia la entrevista con preguntas
+                          cerradas y se finaliza con preguntas abiertas.
+
+          - Embudo: Es de tipo deductivo, donde se inicia la entrevista con preguntas
+                          abiertas y se finaliza con preguntas cerradas.
+          
+          - Diamante Es una combinacion de las anteriores, donde se inicia con preguntas
+                          cerradas, y se termina con preguntas cerradas. Pero en el Medios
+                          hubieron preguntas abiertas para profundizar los temas.
+
+
+      e. Analizar un formato de la planilla adecuado al momento de armar una entrevista.
+            ??? irrelevante, No viene al caso como quien dice, como quien no quiere la cosa.
+      f. Analizar un formato de la planilla adecuado al momento de terminar una entrevista.
+            ??? x2, una banda irrelevante que tiraba, manopla.
+
+
+                     
+
+----- PARTE III: Cuestionarios -----
+3)
+      a. Describir qué tipo de información se busca mediante la aplicación de cuestionarios.
+            - Actitud: Lo que las personas quieren.
+            - Creencias: Lo que las personas creen que es verdad.
+            - Comportamiento: Lo que realmente hacen.
+            - Caracteristicas: De las personas o cosas.
+
+      b. Describir bajo qué circunstancia considera apropiado utilizar cuestionarios.
+            - Cuando estan dispersas geograficamente, en distintas oficinas o ciudades.
+            - Cuando hay muchas personas involucradas.
+            - Cuando necesitamos opiniones generales.
+            - Cuando queremos identificar problemas generales.
+      c. Describir los dos tipos de cuestionarios.
+            - Cuestionarios abiertos, permiten al encuestado responder de cualquier manera,
+            - Cuestionarios cerrados, son directas, cortas o de seleccion especifica.
+
+      
+      
